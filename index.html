@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haidware – Robotics & Electronics Kits</title>
+  <meta name="description" content="Haidware: robotics parts, sensors, and DIY kits. Learn, build, and ship your next project." />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#0ea5a5;       /* teal */
+      --brand-2:#0ea56b;     /* green tint */
+      --ink:#0f172a;         /* slate-900 */
+      --muted:#475569;       /* slate-600 */
+      --bg:#f8fafc;          /* slate-50 */
+      --card:#ffffff;
+      --ring:rgba(14,165,165,.25);
+    }
+    html,body{font-family: 'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial; color:var(--ink); background:var(--bg)}
+
+    /* Navbar */
+    .navbar{backdrop-filter:saturate(150%) blur(8px);}
+    .navbar .nav-link{font-weight:500}
+    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
+    .btn-brand:hover{opacity:.95; color:#fff}
+
+    /* Hero */
+    .hero{position:relative; padding-top:7rem; padding-bottom:5rem; background: radial-gradient(60% 80% at 20% 20%, rgba(14,165,165,.15), transparent 60%),
+                                     radial-gradient(60% 80% at 80% 0%, rgba(14,165,107,.12), transparent 60%);}    
+    .hero .headline{font-size: clamp(2rem, 4vw, 3.25rem); font-weight:700; line-height:1.1}
+    .hero .sub{color:var(--muted); max-width:48rem}
+    .hero-img{border-radius:1.25rem; box-shadow:0 10px 30px rgba(2,6,23,.2);}
+
+    /* Sections */
+    .section{padding: 5rem 0}
+    .section-title{font-weight:700; letter-spacing:.3px}
+    .section-sub{color:var(--muted)}
+
+    /* Cards */
+    .card{border:1px solid #e6e9ef; box-shadow:0 2px 6px rgba(2,6,23,.04)}
+    .card:hover{transform:translateY(-2px); transition:.2s ease; box-shadow:0 8px 24px rgba(2,6,23,.08)}
+    .badge-soft{background:rgba(14,165,165,.1); color:var(--brand); border:1px solid rgba(14,165,165,.2)}
+
+    /* Feature list */
+    .feature i{font-size:1.75rem; width:3.25rem; height:3.25rem; display:grid; place-items:center; border-radius:1rem; background:rgba(14,165,165,.12); color:var(--brand)}
+
+    /* Logo strip */
+    .logo-strip img{opacity:.6; filter:grayscale(100%); transition:.2s}
+    .logo-strip img:hover{opacity:1; filter:none}
+
+    /* FAQ */
+    .accordion-button:focus{box-shadow:0 0 0 .25rem var(--ring)}
+
+    /* Footer */
+    footer{background:#0b1220; color:#cbd5e1}
+    footer a{color:#cbd5e1; text-decoration:none}
+    footer a:hover{color:#fff}
+
+    .shadow-ring{box-shadow:0 0 0 .25rem var(--ring)}
+    .rounded-2xl{border-radius:1.25rem}
+
+    /* Back to top */
+    #backToTop{position:fixed; right:1rem; bottom:1rem; display:none; z-index:1020}
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" tabindex="0">
+
+  <!-- NAV -->
+  <nav id="mainNav" class="navbar navbar-expand-lg bg-white border-bottom fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">
+        <i class="bi bi-cpu me-2 text-teal"></i>Haidware
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li><a class="dropdown-item" href="/accet.html">Accet</a></li>
+              <li><a class="dropdown-item" href="#speaker">Speaker</a></li>
+              <li><a class="dropdown-item" href="#touch-screen">Touch Screen</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="#service-3d">3D Design &amp; Printing</a></li>
+              <li><a class="dropdown-item" href="#service-embedded">Embedded Product Design</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#internship">Internship</a></li>
+          <li class="nav-item"><a class="nav-link" href="#connect-device">Connect Device</a></li>
+          <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+        </ul>
+        <a href="#preorder" class="btn btn-brand ms-lg-3">Pre‑order</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <!-- Slide 1: Accet -->
+          <div class="carousel-item active" id="accet">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-6">
+                <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">Flagship</span>
+                <h1 class="headline">Accet — Assistive sensory device</h1>
+                <p class="sub mt-3"> Using advanced sound sensors, proprietary signal processing, and a tactile feedback interface, Accet translates speech and environmental sounds into real-time vibrations on the user’s skin.</p>
+                <div class="mt-4 d-flex gap-3">
+                  <a href="#preorder" class="btn btn-brand btn-lg">Pre‑order Accet</a>
+                  <a href="#focus" class="btn btn-outline-dark btn-lg">Learn more</a>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <img class="img-fluid hero-img" alt="Accet device render"
+                     src="/ACETT_Revised.jpg" />
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2: Speaker -->
+          <div class="carousel-item" id="speaker">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-6">
+                <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">Home / Office</span>
+                <h1 class="headline">Smart Speaker — Voice, sound, and control</h1>
+                <p class="sub mt-3">A sleek audio assistant that connects to your HAIDWARE ecosystem with low‑latency BLE + Wi‑Fi.</p>
+                <div class="mt-4 d-flex gap-3">
+                  <a href="#preorder" class="btn btn-brand btn-lg">Pre‑order Speaker</a>
+                  <a href="#focus" class="btn btn-outline-dark btn-lg">Learn more</a>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <img class="img-fluid hero-img" alt="Smart speaker on desk"
+                     src="https://images.unsplash.com/photo-1512446816042-444d641267ee?q=80&w=1600&auto=format&fit=crop" />
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3: Touch Screen -->
+          <div class="carousel-item" id="touch-screen">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-6">
+                <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">Control</span>
+                <h1 class="headline">Touch Screen Panel — Intuitive interaction</h1>
+                <p class="sub mt-3">A versatile Touchscreen AI system designed for hospitality, healthcare and service industries.</p>
+                <div class="mt-4 d-flex gap-3">
+                  <a href="#preorder" class="btn btn-brand btn-lg">Pre‑order Panel</a>
+                  <a href="#focus" class="btn btn-outline-dark btn-lg">Learn more</a>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <img class="img-fluid hero-img" alt="Touch screen UI"
+                     src="https://images.unsplash.com/photo-1517519014922-8fc06f6112b6?q=80&w=1600&auto=format&fit=crop" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Logo strip -->
+      <div class="logo-strip mt-5 pt-4 border-top">
+        <p class="text-center text-muted mb-3">Trusted by schools, labs &amp; makerspaces</p>
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+          <img src="https://dummyimage.com/120x40/ddd/000.png&text=UniTech" height="32" alt="UniTech logo"/>
+          <img src="https://dummyimage.com/120x40/ddd/000.png&text=RoboLab" height="32" alt="RoboLab logo"/>
+          <img src="https://dummyimage.com/120x40/ddd/000.png&text=Motive" height="32" alt="Motive logo"/>
+          <img src="https://dummyimage.com/120x40/ddd/000.png&text=Electra" height="32" alt="Electra logo"/>
+          <img src="https://dummyimage.com/120x40/ddd/000.png&text=TechEd" height="32" alt="TechEd logo"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OUR FOCUS -->
+  <section class="section" id="focus">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-10">
+          <h2 class="section-title">Our Focus</h2>
+          <p class="lead section-sub mt-2">Every HAIDWARE product is built on our mission: to integrate IoT and AI into systems that empower, simplify, and connect. From personal devices to business solutions, our focus remains on human‑centered innovation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP -->
+  <section class="section bg-white" id="partnership">
+    <div class="container">
+      <h3 class="section-title">Our partnership with Irerobot</h3>
+      <div class="row g-4">
+        <div class="col-lg-10">
+          <p class="section-sub">HAIDWARE proudly partners with Irerobot, a pioneering sensory technology company specializing in cutting‑edge human–machine interaction.</p>
+          <p class="section-sub">This collaboration is rooted in both shared vision and personal history: HAIDWARE’s founder worked at Irerobot in Republic of Cyprus, honing deep expertise in the hardware and robotics industry. Through this experience, HAIDWARE has built a strong foundation in IoT and AI system integration—skills now applied to create scalable, accessible, and future‑ready solutions.</p>
+          <p class="section-sub">Together, HAIDWARE and Irerobot bring to market breakthrough technologies that merge hardware engineering with AI‑powered intelligence, ensuring every product is both technically sound and human‑centered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT HAIDWARE -->
+  <section class="section" id="about">
+    <div class="container">
+      <h3 class="section-title">About HAIDWARE</h3>
+      <div class="row g-4">
+        <div class="col-lg-10">
+          <p class="section-sub">At HAIDWARE, our mission is to revolutionize the way technology integrates with everyday life. We focus on Internet of Things (IoT) and Artificial Intelligence (AI) to build smarter, more adaptive systems that enhance human potential, break barriers, and empower communities.</p>
+          <p class="section-sub">Our goal is to create innovative solutions where intelligent connectivity meets real‑world needs—from accessibility devices to smart automation systems. By combining IoT infrastructure with AI‑driven intelligence, we transform data into meaningful interactions that make systems more intuitive, responsive, and impactful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="section bg-white" id="news">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between mb-3">
+        <div>
+          <h3 class="section-title mb-1">Latest News</h3>
+          <p class="section-sub mb-0"></p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-10">
+          <p class="section-sub">At HAIRDWARE, innovation never stops. While the Accet device which is the flagship product of the HAIDWARE–Irerobot partnership, is the first step in our mission. We are already developing the next generation of intelligent products designed to serve both individuals and businesses.</p>
+          <ul class="text-muted">
+            <li><strong>EFIKO A1 mini</strong> — compact, affordable intelligence for everyday use (in development).</li>
+            <li><strong>EFIKO B‑series</strong> — scalable devices for education, enterprise, and public services (in development).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES ANCHORS (for navbar links) -->
+  <section class="section" id="service-3d">
+    <div class="container">
+      <h3 class="section-title">3D Design &amp; Printing</h3>
+      <p class="section-sub">Rapid prototyping from CAD to functional prints for enclosures, fixtures, and product iterations.</p>
+    </div>
+  </section>
+  <section class="section bg-white" id="service-embedded">
+    <div class="container">
+      <h3 class="section-title">Embedded Product Design</h3>
+      <p class="section-sub">From PCB to firmware and connectivity—end‑to‑end development for robust, production‑ready devices.</p>
+    </div>
+  </section>
+
+  <!-- INFO PAGES -->
+  <section class="section" id="internship">
+    <div class="container">
+      <h3 class="section-title">Internship</h3>
+      <p class="section-sub">Learn alongside our engineers on real IoT + AI products. Openings announced soon—join the list below.</p>
+      <a href="#preorder" class="btn btn-outline-dark">Join interest list</a>
+    </div>
+  </section>
+  <section class="section bg-white" id="connect-device">
+    <div class="container">
+      <h3 class="section-title">Connect Device</h3>
+      <p class="section-sub">Bring your device or idea; we help connect it to the cloud, apps, and assistive interfaces.</p>
+      <a href="#support" class="btn btn-brand">Talk to us</a>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  
+
+  <!-- KITS / HOW IT WORKS -->
+  <section class="section" id="kits">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded-2xl shadow" alt="Hands assembling a robotics kit"
+               src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?q=80&w=1600&auto=format&fit=crop" />
+        </div>
+        <div class="col-lg-6">
+          <h3 class="section-title">Starter kits that teach by doing</h3>
+          <p class="section-sub">Each kit includes curated components, a project book, and step‑by‑step video tutorials.</p>
+          <div class="d-grid gap-3">
+            <div class="d-flex feature gap-3">
+              <i class="bi bi-journal-code"></i>
+              <div>
+                <h6 class="mb-1">Hands-on curriculum</h6>
+                <p class="mb-0 text-muted">11+ projects covering sensors, motion, and control basics.</p>
+              </div>
+            </div>
+            <div class="d-flex feature gap-3">
+              <i class="bi bi-lightning-charge"></i>
+              <div>
+                <h6 class="mb-1">Plug & play parts</h6>
+                <p class="mb-0 text-muted">No guesswork—tested, labeled components that just fit.</p>
+              </div>
+            </div>
+            <div class="d-flex feature gap-3">
+              <i class="bi bi-headset"></i>
+              <div>
+                <h6 class="mb-1">Fast support</h6>
+                <p class="mb-0 text-muted">Stuck? Our engineers answer most questions same‑day.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#learn" class="btn btn-brand mt-3">See curriculum</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARN -->
+  <section class="section bg-white" id="learn">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h3 class="section-title">Learn with projects</h3>
+        <p class="section-sub">Short tutorials that go from "hello world" to line‑following robots.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img class="card-img-top" alt="Basic blinking LED" src="https://images.unsplash.com/photo-1580191947413-9b77af6e1c00?q=80&w=1200&auto=format&fit=crop" />
+            <div class="card-body">
+              <h5>Blink an LED</h5>
+              <p class="text-muted small">Your first microcontroller sketch using the built‑in LED.</p>
+              <a href="#" class="link-dark">Read guide <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img class="card-img-top" alt="Ultrasonic sensor" src="https://images.unsplash.com/photo-1581905764498-f1b60ae13ecf?q=80&w=1200&auto=format&fit=crop" />
+            <div class="card-body">
+              <h5>Ultrasonic rangefinder</h5>
+              <p class="text-muted small">Measure distance and avoid obstacles in real time.</p>
+              <a href="#" class="link-dark">Read guide <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img class="card-img-top" alt="Line following robot" src="https://images.unsplash.com/photo-1581091874021-6ef0c7e1b627?q=80&w=1200&auto=format&fit=crop" />
+            <div class="card-body">
+              <h5>Line follower bot</h5>
+              <p class="text-muted small">Combine sensors + motors to follow a track autonomously.</p>
+              <a href="#" class="link-dark">Read guide <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE‑ORDER -->
+  <section class="section" id="preorder">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h3 class="section-title">Pre‑order a HAIDWARE device</h3>
+          <p class="section-sub">Reserve yours now. We’ll email you with dates and payment steps once your device is ready.</p>
+          <ul class="text-muted small mb-0">
+            <li>Accet — assistive sensory device</li>
+            <li>Smart Speaker — voice + control</li>
+            <li>Touch Screen Panel — intuitive interface</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 p-lg-5 bg-white rounded-2xl shadow-ring">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6"><input class="form-control" placeholder="Full name" required></div>
+                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required></div>
+                <div class="col-md-12">
+                  <select class="form-select" required>
+                    <option value="" selected disabled>Select device</option>
+                    <option>Accet</option>
+                    <option>Speaker</option>
+                    <option>Touch Screen</option>
+                  </select>
+                </div>
+                <div class="col-md-6"><input type="number" min="1" class="form-control" placeholder="Quantity" required></div>
+                <div class="col-md-6"><input class="form-control" placeholder="Phone (optional)"></div>
+                <div class="col-md-12"><textarea class="form-control" rows="3" placeholder="Notes (optional)"></textarea></div>
+                <div class="col-12"><button class="btn btn-brand w-100" type="submit">Place pre‑order</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT / FAQ -->
+  <section class="section" id="support">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <h3 class="section-title">Questions? We’re here.</h3>
+          <p class="section-sub">Documentation, wiring diagrams, shipping info and returns.</p>
+          <div class="accordion" id="faq">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="h1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">Do you ship nationwide?</button>
+              </h2>
+              <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                <div class="accordion-body">Yes, we ship across Nigeria and to select African countries. Delivery typically takes 1–5 business days depending on your location.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="h2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">What is your return policy?</button>
+              </h2>
+              <div id="c2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body">Unused items can be returned within 7 days for a refund or exchange. Defective items are covered by our 30‑day warranty.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="h3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">Do kits include tutorials?</button>
+              </h2>
+              <div id="c3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body">Yes—each kit includes a printed guide and links to step‑by‑step videos.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 p-lg-5 bg-white rounded-2xl shadow-ring">
+            <h5 class="mb-3">Contact support</h5>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6"><input class="form-control" placeholder="First name" required></div>
+                <div class="col-md-6"><input class="form-control" placeholder="Last name" required></div>
+                <div class="col-md-12"><input type="email" class="form-control" placeholder="Email" required></div>
+                <div class="col-md-12"><textarea class="form-control" placeholder="How can we help?" rows="4"></textarea></div>
+                <div class="col-12"><button class="btn btn-brand w-100" type="submit">Send</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="section bg-white" id="newsletter">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h3 class="section-title mb-1">Join the Haidware list</h3>
+          <p class="section-sub mb-0">Get launch deals, tutorials and project ideas straight to your inbox.</p>
+        </div>
+        <div class="col-lg-5">
+          <form class="d-flex gap-2">
+            <input type="email" class="form-control form-control-lg" placeholder="you@example.com" required>
+            <button class="btn btn-brand btn-lg" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <a class="navbar-brand fw-bold text-white" href="#home"><i class="bi bi-cpu me-2"></i>Haidware</a>
+          <p class="mt-3">Robotics parts, kits and curriculum for makers, schools and teams.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h6 class="text-white">Shop</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#products">All products</a></li>
+            <li><a href="#kits">Kits</a></li>
+            <li><a href="#">New arrivals</a></li>
+            <li><a href="#">Best sellers</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white">Resources</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#learn">Guides</a></li>
+            <li><a href="#support">Docs</a></li>
+            <li><a href="#support">Shipping</a></li>
+            <li><a href="#support">Returns</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6 class="text-white">Get in touch</h6>
+          <ul class="list-unstyled small">
+            <li>Email: <a href="mailto:hello@haidware.com">hello@haidware.com</a></li>
+            <li>Phone: <a href="tel:+2348000000000">+234 800 000 0000</a></li>
+            <li>Ilorin, Nigeria</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4"/>
+      <div class="d-flex justify-content-between small">
+        <div>© <span id="year"></span> Haidware. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="btn btn-dark rounded-circle" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Back to top visibility
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACCET – Empowering the Deaf Through Touch | HAIDWARE</title>
+  <meta name="description" content="ACCET (Auditory Communication Enhancement Through Touch) converts sound into meaningful vibrations in real time using advanced sensors and haptic feedback." />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#0ea5a5;       /* teal */
+      --brand-2:#0ea56b;     /* green */
+      --ink:#0f172a;         /* slate-900 */
+      --muted:#475569;       /* slate-600 */
+      --bg:#f8fafc;          /* slate-50 */
+      --card:#ffffff;        /* white */
+      --ring:rgba(14,165,165,.25);
+    }
+    html,body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial; color:var(--ink); background:var(--bg)}
+    a{color:var(--brand)} a:hover{color:#0b8d8d}
+
+    /* Navbar */
+    .navbar{backdrop-filter:saturate(150%) blur(8px)}
+    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
+    .btn-brand:hover{opacity:.95; color:#fff}
+
+    /* Hero */
+    .hero{position:relative; padding-top:8rem; padding-bottom:5rem; color:#0b132b;
+      background:
+        linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.92)),
+        url('/Qualitative-Beta-testing.png') center/cover no-repeat;
+    }
+    .headline{font-size:clamp(2rem,4vw,3.25rem); font-weight:700; line-height:1.1}
+    .sub{color:var(--muted)}
+    .rounded-2xl{border-radius:1.25rem}
+    .shadow-ring{box-shadow:0 0 0 .25rem var(--ring)}
+
+    /* Section spacing */
+    .section{padding:5rem 0}
+    .section-title{font-weight:700}
+    .section-sub{color:var(--muted)}
+
+    /* Video cards */
+    .video-card{background:var(--card); border:1px solid #e6e9ef; box-shadow:0 2px 10px rgba(2,6,23,.06)}
+
+    /* Feature list */
+    .feature i{font-size:1.5rem; width:3rem; height:3rem; display:grid; place-items:center; border-radius:1rem; background:rgba(14,165,165,.12); color:var(--brand)}
+
+    /* Footer */
+    footer{background:#0b1220; color:#cbd5e1}
+    footer a{color:#cbd5e1; text-decoration:none}
+    footer a:hover{color:#fff}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="./index.html"><i class="bi bi-cpu me-2 text-teal"></i>Haidware</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tech">Technology</a></li>
+          <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#studies">Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#preorder" class="btn btn-brand ms-lg-3">Pre‑order ACCET</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="headline">ACCET — Empowering the Deaf Through Touch</h1>
+          <p class="sub mt-3">(Auditory Communication Enhancement Through Touch)</p>
+          <p class="mt-2">ACCET converts the sound of the world into meaningful vibrations you can feel in real time. ACCET brings sound awareness, safer navigation, and more natural conversation to Deaf and Hard‑of‑Hearing users.</p>
+          <div class="mt-4 d-flex gap-3">
+            <a href="#preorder" class="btn btn-brand btn-lg">Pre‑order now</a>
+            <a href="#overview" class="btn btn-outline-dark btn-lg">How it works</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="bg-white p-3 rounded-2xl shadow-ring">
+            <img class="img-fluid rounded-2xl" alt="ACCET device on a hand" src="/Picture9.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEOS -->
+  <section class="section bg-white" id="videos">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">See ACCET in action</h2>
+        <!-- <p class="section-sub">Add your three videos here. These blocks are responsive and support MP4 files or YouTube/Vimeo embeds.</p> -->
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="video-card rounded-2xl p-2">
+            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
+              <!-- Replace src with your video URL or YouTube embed -->
+              <iframe src="/Auditory Communication Enhancement Through Touch.mp4" title="ACCET demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Auditory Communication Enhancement Through Touch</h6>
+              <p class="small text-muted mb-0">ACETT (Auditory Communication Enhancement Through Touch) enables listening through touch by converting the sounds of the environment including speech, into vibrations that the users feel on their hands. Deaf and Hard of Hearing People receive a unique sound experience through the device, which enhances their awareness of the sounds around them</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="video-card rounded-2xl p-2">
+            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
+              <iframe src="/Hearing with Your Skin_ Meet ACETT.mp4" title="ACCET demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">   
+Hearing with Your Skin: Meet ACETT</h6>
+              <p class="small text-muted mb-0">Feel the rhythm and structure of speech through touch cues.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="video-card rounded-2xl p-2">
+            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
+              <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="ACCET demo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="p-3">
+              <h6 class="mb-1">Urban safety</h6>
+              <p class="small text-muted mb-0">Environmental sounds like alarms or horns mapped to vivid haptics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h3 class="section-title">What ACCET does</h3>
+          <p class="section-sub">ACCET turns sounds into vibrations—allowing Deaf and Hard‑of‑Hearing individuals to experience auditory information through touch.</p>
+          <ul class="text-muted">
+            <li>Converts speech and environmental sounds to tactile patterns in real time.</li>
+            <li>Designed for inclusive learning, situational awareness, and natural communication.</li>
+            <li>Built from the HAIDWARE × Irerobot collaboration for reliability and innovation.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6 d-flex gap-3 feature">
+              <i class="bi bi-mic"></i>
+              <div>
+                <div class="fw-semibold">Advanced sound sensing</div>
+                <div class="small text-muted">Array microphones capture speech and ambient cues.</div>
+              </div>
+            </div>
+            <div class="col-6 d-flex gap-3 feature">
+              <i class="bi bi-cpu"></i>
+              <div>
+                <div class="fw-semibold">Signal processing</div>
+                <div class="small text-muted">Proprietary DSP extracts features and encodes patterns.</div>
+              </div>
+            </div>
+            <div class="col-6 d-flex gap-3 feature">
+              <i class="bi bi-tsunami"></i>
+              <div>
+                <div class="fw-semibold">Tactile interface</div>
+                <div class="small text-muted">Haptics deliver clear, comfortable vibrations on skin.</div>
+              </div>
+            </div>
+            <div class="col-6 d-flex gap-3 feature">
+              <i class="bi bi-wifi"></i>
+              <div>
+                <div class="fw-semibold">IoT ready</div>
+                <div class="small text-muted">Connects with apps & updates for continuous improvement.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="section bg-white" id="tech">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded-2xl" alt="ACCET internals illustration" src="/ACETT_Revised.jpg" />
+        </div>
+        <div class="col-lg-6">
+          <h3 class="section-title">Technology</h3>
+          <p class="section-sub">Using advanced sound sensors, proprietary signal processing, and a tactile feedback interface, ACCET translates speech and environmental sounds into real‑time vibrations on the user’s skin.</p>
+          <ul class="text-muted">
+            <li>Sensors → capture acoustic input</li>
+            <li>DSP → extract features & map to haptic language</li>
+            <li>Haptics → render patterns as distinct, learnable vibrations</li>
+          </ul>
+          <div class="alert alert-light border mt-3 mb-0"><i class="bi bi-patch-check-fill me-2"></i>Built to high safety & performance standards; engineered with certification in mind.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section" id="impact">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h3 class="section-title">Impact</h3>
+        <p class="section-sub">From classrooms to daily life, ACCET supports confidence, independence, and inclusion.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded-2xl h-100 border">
+            <h6>Inclusive learning</h6>
+            <p class="text-muted mb-0">Follow lessons, announcements, and discussions using tactile cues synced to speech.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded-2xl h-100 border">
+            <h6>Situational awareness</h6>
+            <p class="text-muted mb-0">Feel critical sounds—alarms, horns, doorbells—translated into unmistakable vibration patterns.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded-2xl h-100 border">
+            <h6>Natural communication</h6>
+            <p class="text-muted mb-0">Experience rhythm, emphasis, and turn‑taking features that support smooth conversation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIES / TESTING -->
+  <section class="section bg-white" id="studies">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-6">
+          <h3 class="section-title">Testing & Studies</h3>
+          <p class="section-sub">ACCET is being refined with feedback from Deaf and Hard‑of‑Hearing testers and formal study settings. Early results indicate improved recognition of words when ACCET is active compared with inactive conditions.*</p>
+          <p class="small text-muted">* Summary based on partner study updates; not a medical device. Final performance depends on environment and user training.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 bg-white border rounded-2xl">
+            <h6 class="mb-2"><i class="bi bi-people me-2"></i>Beta testing</h6>
+            <p class="small text-muted mb-3">Iterative trials with hearing‑impaired participants inform ergonomics, comfort, and haptic vocabulary.</p>
+            <h6 class="mb-2"><i class="bi bi-clipboard2-pulse me-2"></i>Clinical‑style evaluations</h6>
+            <p class="small text-muted mb-0">Pilot sessions measure speech awareness trends and task performance with/without haptic assistance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3 class="section-title">Frequently Asked Questions</h3>
+        <p class="section-sub">Quick answers about ACCET.</p>
+      </div>
+      <div class="accordion" id="faqAccet">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q1"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#a1">Is ACCET a medical device?</button></h2>
+          <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccet"><div class="accordion-body">No. ACCET is an assistive technology aimed at awareness and communication support. It does not diagnose or treat medical conditions.</div></div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a2">How long does the battery last?</button></h2>
+          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccet"><div class="accordion-body">Designed for a full day of typical use. Exact runtime varies with vibration intensity and environment.</div></div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q3"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a3">Can I train to recognize patterns?</button></h2>
+          <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccet"><div class="accordion-body">Yes. ACCET supports guided practice so users can build a personal library of recognizable vibration patterns.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREORDER -->
+  <section class="section bg-white" id="preorder">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h3 class="section-title">Pre‑order ACCET</h3>
+          <p class="section-sub">Reserve your device and get notified when shipping begins.</p>
+          <ul class="text-muted small mb-0">
+            <li>Built with high‑quality sensors and precision haptics</li>
+            <li>Designed for daily comfort and intuitive feedback</li>
+            <li>Backed by HAIDWARE × Irerobot engineering</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 p-lg-5 bg-white rounded-2xl shadow-ring">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6"><input class="form-control" placeholder="Full name" required></div>
+                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required></div>
+                <div class="col-md-12">
+                  <select class="form-select" required>
+                    <option value="" selected disabled>Choose version</option>
+                    <option>ACCET – Standard</option>
+                    <option>ACCET – Education Pack</option>
+                  </select>
+                </div>
+                <div class="col-md-6"><input type="number" min="1" class="form-control" placeholder="Quantity" required></div>
+                <div class="col-md-6"><input class="form-control" placeholder="Phone (optional)"></div>
+                <div class="col-md-12"><textarea class="form-control" rows="3" placeholder="Notes (optional)"></textarea></div>
+                <div class="col-12"><button class="btn btn-brand w-100" type="submit">Place pre‑order</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="d-flex justify-content-between flex-wrap gap-3 small">
+        <div>© <span id="year"></span> Haidware. ACCET is developed in partnership with Irerobot.</div>
+        <div class="d-flex gap-3">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
