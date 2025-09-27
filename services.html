@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haidware — Product Engineering Solutions</title>
+  <meta name="description" content="Haidware provides end‑to‑end product engineering: hardware, embedded, software, QA automation, CAD, and 3D printing — powered by IoT and AI." />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f1a;           /* dark */
+      --panel:#0e1526;        /* panel */
+      --ink:#e6eefc;          /* light text */
+      --muted:#9fb3d1;        /* muted text */
+      --brand:#0ea5a5;        /* teal */
+      --brand-2:#0ea56b;      /* green */
+      --ring:rgba(14,165,165,.35);
+    }
+
+    html,body{background:var(--bg); color:var(--ink); font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
+    a{color:var(--ink)} a:hover{color:#fff}
+
+    /* Navbar */
+    .navbar{backdrop-filter:saturate(140%) blur(8px)}
+    .navbar .nav-link{color:var(--ink)}
+    .navbar .nav-link:hover{color:#fff}
+    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
+    .btn-brand:hover{opacity:.95}
+
+    /* Hero */
+    .hero{position:relative; padding-top:8.5rem; padding-bottom:6rem;
+      background:
+        radial-gradient(1200px 600px at 15% -20%, rgba(14,165,165,.18), transparent 60%),
+        radial-gradient(800px 500px at 80% -10%, rgba(14,165,107,.12), transparent 60%),
+        linear-gradient(rgba(11,15,26,.65), rgba(11,15,26,.85)),
+        url('/back.jpeg') center/cover no-repeat; /* replaced with your uploaded image */
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .hero h1{font-weight:800; font-size:clamp(1.9rem, 3.6vw, 3rem); letter-spacing:.2px}
+    .hero p.lead{color:var(--muted)}
+
+    /* Sections */
+    .section{padding:4.5rem 0}
+    .section-title{font-weight:700}
+    .section-sub{color:var(--muted)}
+
+    /* Cards */
+    .card-service{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.06); border-radius:1.25rem; overflow:hidden; box-shadow:0 10px 30px rgba(2,6,23,.25)}
+    .card-media{position:relative; height:200px; background:#111;}
+    .card-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(110%) contrast(105%)}
+    .card-media::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35));}
+    .card-body{padding:1.25rem 1.25rem 1.5rem}
+    .eyebrow{display:inline-flex; gap:.4rem; align-items:center; padding:.35rem .6rem; border-radius:999px; background:rgba(14,165,165,.12); color:#9ee5e5; border:1px solid rgba(14,165,165,.25); font-size:.8rem}
+    .card-service:hover{transform:translateY(-3px); box-shadow:0 16px 40px rgba(2,6,23,.35); transition:.25s ease}
+    .read a{color:#bcd2f6; text-decoration:none}
+    .read a:hover{color:#fff}
+
+    .shadow-ring{box-shadow:0 0 0 .25rem var(--ring)}
+
+    /* CTA */
+    .cta{background:linear-gradient(90deg, rgba(14,165,165,.12), rgba(14,165,107,.12)); border:1px solid rgba(255,255,255,.06); border-radius:1.25rem}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06); color:var(--muted)}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top" style="background:rgba(11,15,26,.6)">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="./index.html"><i class="bi bi-cpu me-2"></i>Haidware</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="./index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./accet.html">ACCET</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="./team.html">Team</a></li>
+        </ul>
+        <a class="btn btn-brand ms-lg-3" href="./index.html#support">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-8">
+          <h1>Haidware Product Engineering Solutions</h1>
+          <p class="lead mt-3">At Haidware, we believe that the convergence of innovation and expertise brings your ideas to life. Our product engineering solutions, powered by IoT and AI integration, enable businesses to build next-gen products at optimum cost and rapid timelines.</p>
+          <div class="d-flex flex-wrap gap-3 mt-3">
+            <a class="btn btn-brand btn-lg" href="#services">Explore services</a>
+            <a class="btn btn-outline-light btn-lg" href="./index.html#preorder">Start a project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO COPY -->
+  <section class="section" id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <p class="section-sub">We cover the complete product development lifecycle, ensuring seamless transformation from concept to reality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="section pt-0" id="services">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- 1. Hardware Design & System Engineering -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-service h-100">
+            <div class="card-media">
+              <img alt="Hardware design visuals" src="/1.jpeg"/>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow"><i class="bi bi-cpu"></i> Hardware & System</span>
+              <h3 class="h5 mt-2">Hardware Design & System Engineering</h3>
+              <p class="section-sub mb-3">Robust architectures and scalable hardware solutions designed for AI and IoT integration.</p>
+              <div class="read"><a href="#hardware">Read more <i class="bi bi-arrow-right-short"></i></a></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2. Embedded System & Device Engineering -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-service h-100">
+            <div class="card-media">
+              <img alt="Embedded device boards" src="/2.jpeg"/>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow"><i class="bi bi-motherboard"></i> Embedded</span>
+              <h3 class="h5 mt-2">Embedded System & Device Engineering</h3>
+              <p class="section-sub mb-3">Intelligent embedded systems powering connected devices and smart ecosystems.</p>
+              <div class="read"><a href="#embedded">Read more <i class="bi bi-arrow-right-short"></i></a></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 3. Mobile, Web & Digital Software Engineering -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-service h-100">
+            <div class="card-media">
+              <img alt="Software UI and code" src="/3.jpeg"/>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow"><i class="bi bi-window"></i> Software</span>
+              <h3 class="h5 mt-2">Mobile, Web & Digital Software Engineering</h3>
+              <p class="section-sub mb-3">Custom mobile apps, responsive web, and digital platforms enhanced with IoT connectivity and AI analytics.</p>
+              <div class="read"><a href="#software">Read more <i class="bi bi-arrow-right-short"></i></a></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 4. Quality & Automation Engineering -->
+        <!-- <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-service h-100">
+            <div class="card-media">
+              <img alt="Quality testing instruments" src="https://images.unsplash.com/photo-1581093588401-16f1a1c9ab89?q=80&w=1600&auto=format&fit=crop"/>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow"><i class="bi bi-robot"></i> QA & Automation</span>
+              <h3 class="h5 mt-2">Quality & Automation Engineering</h3>
+              <p class="section-sub mb-3">Advanced testing, validation, and AI‑driven automation to guarantee performance and reliability.</p>
+              <div class="read"><a href="#qa">Read more <i class="bi bi-arrow-right-short"></i></a></div>
+            </div>
+          </article>
+        </div> -->
+
+        <!-- 5. CAD Design Solutions -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-service h-100">
+            <div class="card-media">
+              <img alt="CAD modeling screen" src="/4.jpeg"/>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow"><i class="bi bi-rulers"></i> CAD</span>
+              <h3 class="h5 mt-2">CAD Design Solutions</h3>
+              <p class="section-sub mb-3">High‑precision CAD modeling optimized for manufacturability and integration with IoT‑ready devices.</p>
+              <div class="read"><a href="#cad">Read more <i class="bi bi-arrow-right-short"></i></a></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 6. 3D Printing -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-service h-100">
+            <div class="card-media">
+              <img alt="3D printing nozzle" src="/5.jpeg"/>
+            </div>
+            <div class="card-body">
+              <span class="eyebrow"><i class="bi bi-cube"></i> 3D Printing</span>
+              <h3 class="h5 mt-2">3D Printing</h3>
+              <p class="section-sub mb-3">Rapid prototyping with digital twins, CAD‑to‑print workflows, and AI‑assisted design validation.</p>
+              <div class="read"><a href="#printing">Read more <i class="bi bi-arrow-right-short"></i></a></div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="cta p-4 p-lg-5 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+        <div>
+          <h3 class="mb-1">Have a product in mind?</h3>
+          <p class="mb-0 section-sub">From concept to pilot to scale — let’s architect it together.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-brand btn-lg" href="./index.html#support">Talk to us</a>
+          <a class="btn btn-outline-light btn-lg" href="./index.html#preorder">Start a prototype</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 mt-4">
+    <div class="container d-flex justify-content-between small">
+      <span>© <span id="year"></span> Haidware</span>
+      <span><a href="./index.html#about" class="link-light">About</a> · <a class="link-light" href="./team.html">Team</a> · <a class="link-light" href="./index.html#support">Support</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
