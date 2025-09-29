@@ -44,6 +44,64 @@
     .hero h1{font-weight:800; font-size:clamp(1.9rem, 3.6vw, 3rem); letter-spacing:.2px}
     .hero p.lead{color:var(--muted)}
 
+      /* === Circle flow band: same look on all devices === */
+      .process-band{
+        background:#2c2470; border-radius:1.25rem;
+        position:relative; overflow:hidden;
+      }
+
+      /* horizontal row that can scroll on small screens */
+      .process-list{
+        display:flex; align-items:center; justify-content:center;
+        gap:2rem; padding:2rem;
+        overflow-x:auto; -webkit-overflow-scrolling:touch;
+        scrollbar-width:thin;
+      }
+      .process-list::-webkit-scrollbar{height:6px}
+      .process-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25); border-radius:999px}
+
+      /* circles */
+      .process-circle{
+        flex:0 0 auto;
+        width:200px; height:200px; aspect-ratio:1/1;
+        border-radius:50%; padding:6px;
+        background:#0b0f1a; border:8px solid #60a5fa;
+        box-shadow:0 10px 24px rgba(2,6,23,.35);
+      }
+      .process-circle img{
+        width:100%; height:100%; object-fit:cover; border-radius:50%;
+      }
+
+      /* inline connectors that move with the row */
+      .connector{
+        flex:0 0 auto; width:140px; height:60px;
+      }
+      .connector path{
+        stroke:#7dd3fc; stroke-width:8; stroke-linecap:round; fill:none;
+      }
+
+      /* scale down gracefully on narrower devices — but keep the same layout */
+      @media (max-width: 1199.98px){
+        .process-circle{width:180px; height:180px}
+        .connector{width:120px; height:54px}
+      }
+      @media (max-width: 991.98px){
+        .process-circle{width:160px; height:160px; border-width:7px}
+        .connector{width:110px; height:48px}
+        .connector path{stroke-width:7}
+      }
+      @media (max-width: 767.98px){
+        .process-circle{width:140px; height:140px; border-width:6px}
+        .connector{width:90px; height:42px}
+        .connector path{stroke-width:6}
+      }
+      @media (max-width: 479.98px){
+        .process-circle{width:130px; height:130px; border-width:6px}
+        .connector{width:70px; height:36px}
+        .process-list{gap:1rem; padding:1rem}
+      }
+
+
     /* Sections */
     .section{padding:4.5rem 0}
     .section-title{font-weight:700}
@@ -102,6 +160,56 @@
       </div>
     </div>
   </header>
+  <!-- WRITE-UP (after hero) -->
+<section class="section pt-4 pb-0" id="dream">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <p class="lead section-sub">
+          <strong>Dream your product with us.</strong> Transforming ideas from concept to reality with our product
+          engineering solutions from COTS prototypes to PCB design, CAD modeling, 3D printing, web design, and
+          mobile app development all powered by IoT and AI intelligence.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIRCLES BAND (same layout on all devices) -->
+<section class="section pt-3" id="circle-flow">
+  <div class="container">
+    <div class="process-band">
+      <div class="process-list">
+        <!-- Circle 1 -->
+        <div class="process-circle">
+          <img src="/c1.jpeg" alt="People collaborating">
+        </div>
+
+        <!-- Connector 1 -->
+        <svg class="connector" viewBox="0 0 140 60" aria-hidden="true">
+          <path d="M10,50 C50,10 90,10 130,50"></path>
+        </svg>
+
+        <!-- Circle 2 -->
+        <div class="process-circle">
+          <img src="/c2.jpeg" alt="Prototype device">
+        </div>
+
+        <!-- Connector 2 -->
+        <svg class="connector" viewBox="0 0 140 60" aria-hidden="true">
+          <path d="M10,10 C50,50 90,50 130,10"></path>
+        </svg>
+
+        <!-- Circle 3 -->
+        <div class="process-circle">
+          <img src="/c3.jpeg" alt="Final product">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- INTRO COPY -->
   <section class="section" id="intro">
@@ -138,7 +246,7 @@
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-service h-100">
             <div class="card-media">
-              <img alt="Embedded device boards" src="/2.jpeg"/>
+              <img alt="Embedded device boards" src="/emb.jpeg"/>
             </div>
             <div class="card-body">
               <span class="eyebrow"><i class="bi bi-motherboard"></i> Embedded</span>
