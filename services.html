@@ -120,6 +120,51 @@
 
     .shadow-ring{box-shadow:0 0 0 .25rem var(--ring)}
 
+            /* --- Contact form (dark theme) --- */
+        /* Force visible colors for native <select> options on dark themes */
+            .form-select,
+            .form-select:focus{
+              background:rgba(255,255,255,.06);
+              border-color:rgba(255,255,255,.25);
+              color:#e6eefc;
+            }
+
+            /* Options menu (most browsers) */
+            .form-select option{
+              background:#ffffff;
+              color:#0b1220;
+            }
+
+            /* Selected option highlight */
+            .form-select option:checked{
+              background:#0ea5a5;
+              color:#ffffff;
+            }
+
+/* (Optional) make the dropdown sit above nearby elements */
+#contactCollapse { position: relative; z-index: 3; }
+
+
+        /* --- Circle band improvements: snap + arrows --- */
+        .process-list{scroll-snap-type:x mandatory; scroll-padding:2rem}
+        .process-circle, .connector{scroll-snap-align:center}
+
+        .process-nav{
+          position:absolute; inset:0;
+          display:flex; align-items:center; justify-content:space-between;
+          padding:0 6px; pointer-events:none;
+        }
+        .process-nav button{
+          pointer-events:auto;
+          width:40px; height:40px; border-radius:50%;
+          display:grid; place-items:center;
+          border:1px solid rgba(255,255,255,.25);
+          background:rgba(255,255,255,.15); color:#fff;
+          backdrop-filter:blur(6px);
+        }
+        .process-nav button:hover{background:rgba(255,255,255,.25)}
+
+
     /* CTA */
     .cta{background:linear-gradient(90deg, rgba(14,165,165,.12), rgba(14,165,107,.12)); border:1px solid rgba(255,255,255,.06); border-radius:1.25rem}
 
@@ -175,35 +220,22 @@
   </div>
 </section>
 
-<!-- CIRCLES BAND (same layout on all devices) -->
+<!-- CIRCLES BAND (same layout on all devices + arrows) -->
 <section class="section pt-3" id="circle-flow">
   <div class="container">
     <div class="process-band">
       <div class="process-list">
-        <!-- Circle 1 -->
-        <div class="process-circle">
-          <img src="/c1.jpeg" alt="People collaborating">
-        </div>
+        <div class="process-circle"><img src="/c1.jpeg" alt="People collaborating"></div>
+        <svg class="connector" viewBox="0 0 140 60" aria-hidden="true"><path d="M10,50 C50,10 90,10 130,50"></path></svg>
+        <div class="process-circle"><img src="/c2.jpeg" alt="Prototype device"></div>
+        <svg class="connector" viewBox="0 0 140 60" aria-hidden="true"><path d="M10,10 C50,50 90,50 130,10"></path></svg>
+        <div class="process-circle"><img src="/c3.jpeg" alt="Final product"></div>
+      </div>
 
-        <!-- Connector 1 -->
-        <svg class="connector" viewBox="0 0 140 60" aria-hidden="true">
-          <path d="M10,50 C50,10 90,10 130,50"></path>
-        </svg>
-
-        <!-- Circle 2 -->
-        <div class="process-circle">
-          <img src="/c2.jpeg" alt="Prototype device">
-        </div>
-
-        <!-- Connector 2 -->
-        <svg class="connector" viewBox="0 0 140 60" aria-hidden="true">
-          <path d="M10,10 C50,50 90,50 130,10"></path>
-        </svg>
-
-        <!-- Circle 3 -->
-        <div class="process-circle">
-          <img src="/c3.jpeg" alt="Final product">
-        </div>
+      <!-- Arrow controls -->
+      <div class="process-nav">
+        <button class="process-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+        <button class="process-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
       </div>
     </div>
   </div>
@@ -321,21 +353,67 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section pt-0">
-    <div class="container">
-      <div class="cta p-4 p-lg-5 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
-        <div>
-          <h3 class="mb-1">Have a product in mind?</h3>
-          <p class="mb-0 section-sub">From concept to pilot to scale — let’s architect it together.</p>
-        </div>
-        <div class="d-flex gap-2">
-          <a class="btn btn-brand btn-lg" href="./index.html#support">Talk to us</a>
-          <a class="btn btn-outline-light btn-lg" href="./index.html#preorder">Start a prototype</a>
-        </div>
+ <!-- CTA + CONTACT (dropdown) -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="cta p-4 p-lg-5 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+      <div>
+        <h3 class="mb-1">Have a product in mind?</h3>
+        <p class="mb-0 section-sub">From concept to pilot to scale — let’s architect it together.</p>
+      </div>
+      <div class="d-flex gap-2">
+        <!-- DROPDOWN BUTTON -->
+        <button class="btn btn-brand btn-lg" data-bs-toggle="collapse" data-bs-target="#contactCollapse" aria-expanded="false" aria-controls="contactCollapse">
+          Talk to us
+        </button>
+        <a class="btn btn-outline-light btn-lg" href="./index.html#preorder">Start a prototype</a>
       </div>
     </div>
-  </section>
+
+    <!-- COLLAPSIBLE FORM -->
+    <div id="contactCollapse" class="collapse mt-3">
+      <div class="p-4 p-lg-5 border rounded-3" style="border-color:rgba(255,255,255,.12)">
+        <form id="contactForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="cf-name">Name</label>
+              <input id="cf-name" name="name" class="form-control" placeholder="Your full name" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="cf-interest">Area of interest</label>
+              <select id="cf-interest" name="interest" class="form-select" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Hardware Design & System Engineering</option>
+                <option>Embedded System & Device Engineering</option>
+                <option>Mobile, Web & Digital Software Engineering</option>
+                <option>Quality & Automation Engineering</option>
+                <option>CAD Design Solutions</option>
+                <option>3D Printing</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="cf-email">Email</label>
+              <input id="cf-email" type="email" name="email" class="form-control" placeholder="you@example.com" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="cf-phone">Phone number</label>
+              <input id="cf-phone" name="phone" class="form-control" placeholder="+234 801 234 5678">
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" class="form-control" rows="4" placeholder="Tell us about your project…" required></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-brand btn-lg w-100" type="submit">Send</button>
+              <p class="text-muted small mt-2 mb-0">Submitting will open your email app with the details pre-filled.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <footer class="py-4 mt-4">
     <div class="container d-flex justify-content-between small">
@@ -345,6 +423,56 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+      // Contact form -> mailto
+      (function(){
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          const fd = new FormData(form);
+          const to = 'support@haidware.com'; // <-- change to your inbox
+          const subject = 'New service inquiry – ' + (fd.get('name') || 'Website');
+          const body =
+            `Name: ${fd.get('name')}\n` +
+            `Area of interest: ${fd.get('interest')}\n` +
+            `Email: ${fd.get('email')}\n` +
+            `Phone: ${fd.get('phone') || ''}\n\n` +
+            `Message:\n${fd.get('message')}`;
+          window.location.href =
+            `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+      })();
+
+        // --- Circle band: index-based scroll so all 3 are reachable ---
+      (function(){
+        const band = document.querySelector('#circle-flow .process-list');
+        if (!band) return;
+
+        const items = [...band.querySelectorAll('.process-circle')];
+        const prev  = document.querySelector('#circle-flow .process-prev');
+        const next  = document.querySelector('#circle-flow .process-next');
+
+        let idx = 0;
+        function go(i){
+          if (!items.length) return;
+          idx = (i + items.length) % items.length;
+          items[idx].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+        }
+
+        prev?.addEventListener('click', () => go(idx - 1));
+        next?.addEventListener('click', () => go(idx + 1));
+
+        // Allow finger/trackpad swipe; keep snapping
+        band.style.scrollSnapType = 'x mandatory';
+        [...items, ...band.querySelectorAll('.connector')].forEach(el => el.style.scrollSnapAlign = 'center');
+
+        // Start on the first image
+        go(0);
+      })();
+    </script>
+
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
