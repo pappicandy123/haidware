@@ -67,6 +67,113 @@
 
     /* Back to top */
     #backToTop{position:fixed; right:1rem; bottom:1rem; display:none; z-index:1020}
+
+    /* ======= Printable Promo (Home) ======= */
+.promo-alert{
+  display:flex; align-items:center; gap:1rem;
+  background:linear-gradient(90deg,#0ea5a5,#0ea56b);
+  color:#fff; border-radius:1rem; padding:.9rem 1.1rem;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 10px 24px rgba(14,165,165,.25);
+  position:relative; overflow:hidden;
+}
+.promo-alert::after{
+  /* subtle sheen */
+  content:""; position:absolute; inset:-40% auto -40% -30%;
+  width:50%; transform:skewX(-20deg); 
+  background:radial-gradient(closest-side,rgba(255,255,255,.25),transparent 60%);
+  animation:promoSheen 8s linear infinite;
+}
+@keyframes promoSheen{
+  0%{left:-40%} 55%{left:120%} 100%{left:120%}
+}
+
+.promo-link{display:flex; align-items:center; gap:.85rem; text-decoration:none; color:inherit; flex:1}
+.promo-badge{display:inline-flex; align-items:center; gap:.35rem; 
+  background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
+  padding:.25rem .55rem; border-radius:999px; font-weight:600; letter-spacing:.3px; font-size:.8rem
+}
+.promo-text{font-weight:600}
+.promo-cta{display:inline-flex; align-items:center; gap:.4rem; 
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28);
+  padding:.4rem .7rem; border-radius:.7rem; font-weight:600}
+.promo-cta i{transition:.2s ease}
+.promo-link:hover .promo-cta i{transform:translateX(3px)}
+
+.promo-close{
+  position:absolute; right:.4rem; top:.4rem; z-index:1;
+  filter:invert(1) brightness(2); opacity:.85
+}
+
+/* Responsive layout */
+@media (max-width: 575.98px){
+  .promo-alert{flex-wrap:wrap; gap:.6rem; padding: .8rem .9rem}
+  .promo-text{flex-basis:100%}
+}
+/* ==== PROMO: responsive fixes ==== */
+.promo-alert{
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.promo-link{
+  min-width:0;                 /* allow text to shrink instead of overflow */
+  flex-wrap:wrap;              /* wrap when needed */
+}
+
+.promo-text{
+  min-width:0;
+  line-height:1.3;
+  word-break:break-word;       /* avoid overflow on very narrow widths */
+  hyphens:auto;
+  font-size:clamp(.95rem, 2.8vw, 1rem);
+}
+
+/* Make the CTA readable on narrow screens */
+.promo-cta{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+
+/* Mobile-first stack: badge → text → full-width CTA  */
+@media (max-width: 575.98px){
+  .promo-link{
+    display:grid;
+    grid-template-columns: 1fr;
+    row-gap:.5rem;
+    align-items:start;
+  }
+  .promo-badge{
+    justify-self:start;
+    margin-bottom:.1rem;
+  }
+  .promo-text{
+    grid-column:1 / -1;
+  }
+  .promo-cta{
+    grid-column:1 / -1;
+    justify-self:stretch;
+    text-align:center;
+    padding:.6rem .8rem;
+    border-radius:.65rem;
+  }
+  .promo-alert{padding:.85rem .95rem; border-radius:.875rem}
+}
+
+/* Small tablets: give text more room, keep CTA visible */
+@media (min-width: 576px) and (max-width: 767.98px){
+  .promo-link{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    column-gap:.75rem;
+    row-gap:.35rem;
+  }
+  .promo-badge{grid-column:1 / 2}
+  .promo-text{grid-column:1 / 2}
+  .promo-cta{grid-column:2 / 3; align-self:center}
+}
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" tabindex="0">
@@ -110,6 +217,16 @@
   <!-- HERO -->
   <header id="home" class="hero">
     <div class="container">
+          <!-- Printable Promo Banner -->
+    <div id="promoPrintable" class="promo-alert mb-4" role="region" aria-label="Promotion: Printable 3D Figurines">
+      <a class="promo-link" href="/product.html">  <!-- change to your actual product page path -->
+        <span class="promo-badge"><i class="bi bi-cube"></i> Printable</span>
+        <span class="promo-text">Turn your photo into a custom <u>3D Figurine</u> designed & printed by Haidware.</span>
+        <span class="promo-cta">Order now <i class="bi bi-arrow-right"></i></span>
+      </a>
+      <button class="btn btn-sm btn-close promo-close" type="button" aria-label="Dismiss"></button>
+    </div>
+
       <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -552,5 +669,21 @@ A versatile touchscreen AI system designed for hospitality, healthcare, and serv
     });
     backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
   </script>
+  <script>
+  // Dismiss + remember (session)
+  (function(){
+    const bar = document.getElementById('promoPrintable');
+    if(!bar) return;
+    const KEY = 'hidePrintablePromo';
+    if (sessionStorage.getItem(KEY) === '1') { bar.remove(); return; }
+
+    bar.querySelector('.promo-close')?.addEventListener('click', (e)=>{
+      e.stopPropagation(); e.preventDefault();
+      bar.remove();
+      sessionStorage.setItem(KEY,'1');
+    });
+  })();
+</script>
+
 </body>
 </html>

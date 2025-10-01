@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haidware — Image → 3D Figurine</title>
+  <meta name="description" content="Turn your photo into a custom 3D figurine. Order via WhatsApp or Email. Sizes 10–30 cm. Designed and printed by Haidware." />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+        :root{
+        --bg:#f7f9fc;          /* page background (light) */
+        --panel:#ffffff;       /* cards/panels */
+        --ink:#0b1220;         /* main text (dark) */
+        --muted:#475569;       /* muted text */
+        --brand:#0ea5a5;       /* teal */
+        --brand-2:#0ea56b;     /* green */
+        --ring:rgba(14,165,165,.25);
+        --accent:#2563eb;      /* blue accents */
+        }
+
+
+    html,body{background:var(--bg); color:var(--ink); font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
+    a{color:#0ea5a5} a:hover{color:#0a8f8f}
+
+
+    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
+    .btn-brand:hover{opacity:.95}
+
+    /* HERO */
+        .hero{
+        position:relative; padding-top:7.5rem; padding-bottom:4.5rem; overflow:hidden;
+        background:
+            radial-gradient(1000px 500px at 10% -10%, rgba(14,165,165,.20), transparent 60%),
+            radial-gradient(800px 450px at 85% -10%, rgba(37,99,235,.14), transparent 60%),
+            linear-gradient(180deg, #ffffff, #f7f9fc);
+        border-bottom:1px solid rgba(15,23,42,.08);
+        }
+
+    .hero .shine{position:absolute; inset:-20%; background:radial-gradient(closest-side, rgba(255,255,255,.08), transparent 60%); filter:blur(40px); animation:float 12s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)} 50%{transform:translateY(-12px)} 100%{transform:translateY(0)}}
+    .eyebrow{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:999px; background:rgba(14,165,165,.12); color:#9ee5e5; border:1px solid rgba(14,165,165,.25); font-size:.8rem}
+    .hero h1{font-weight:800; font-size:clamp(1.9rem,3.6vw,3rem)}
+    .lead{color:var(--muted)}
+
+    /* GALLERY */
+    /* Responsive gallery + hover */
+.gallery .card-img{cursor: zoom-in; transition: transform .25s ease, box-shadow .25s ease}
+.gallery .card-img:hover{transform:translateY(-3px); box-shadow:0 10px 28px rgba(2,6,23,.12)}
+.gallery .card-img img{width:100%; height:100%; object-fit:cover}
+
+/* Lightbox modal */
+.modal.lightbox .modal-content{background:transparent; border:0; box-shadow:none}
+.modal.lightbox .modal-body{display:grid; place-items:center; padding:0}
+.lightbox img{max-width:95vw; max-height:85vh; width:auto; height:auto; object-fit:contain}
+.modal-backdrop.show{backdrop-filter: blur(4px)}
+.lightbox-nav{
+  position:absolute; inset:0; display:flex; justify-content:space-between; align-items:center;
+  pointer-events:none; padding:0 .5rem;
+}
+.lightbox-nav button{
+  pointer-events:auto; width:44px; height:44px; border-radius:50%;
+  display:grid; place-items:center; border:1px solid rgba(2,6,23,.15);
+  background:rgba(255,255,255,.85);
+}
+@media (max-width: 575.98px){
+  .lightbox img{max-width:100vw; max-height:80vh}
+}
+
+
+    /* CHIPS */
+            .chip{
+        background:rgba(2,6,23,.04);
+        color:#0b1220;
+        border:1px solid rgba(2,6,23,.08);
+        border-radius:999px; padding:.5rem .75rem; font-size:.9rem;
+        }
+
+    /* TIMELINE */
+    .timeline{position:relative}
+    .timeline::before{content:""; position:absolute; left:1rem; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent), transparent); opacity:.6}
+    .step{position:relative; padding-left:3rem}
+    .step .dot{position:absolute; left:.55rem; top:.25rem; width:16px; height:16px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 .25rem rgba(96,165,250,.18)}
+
+    /* CARDS/SECTIONS */
+    .section{padding:4rem 0}
+        .panel{
+        background:#ffffff;
+        border:1px solid rgba(15,23,42,.08);
+        border-radius:1.25rem;
+        box-shadow:0 10px 30px rgba(2,6,23,.08);
+        }
+
+
+    /* PRICING */
+            .size-card{
+        transition:.25s ease; cursor:pointer;
+        background:#ffffff; border:1px solid rgba(15,23,42,.10);
+        border-radius:1rem;
+        }
+        .size-card:hover{transform:translateY(-2px); box-shadow:0 10px 28px rgba(2,6,23,.10)}
+        .size-card.active{outline:2px solid var(--accent); box-shadow:0 0 0 .25rem rgba(37,99,235,.18)}
+
+    .size-card .price{font-weight:700; font-size:1.25rem}
+   /* .size-card.active{outline:2px solid var(--accent); box-shadow:0 0 0 .25rem rgba(96,165,250,.22)} */
+
+    /* FORM */
+        .form-control, .form-select{background:#ffffff; border-color:#e2e8f0; color:#0b1220}
+        .form-control::placeholder{color:#64748b}
+        .form-control:focus, .form-select:focus{
+        background:#ffffff; border-color:#93c5fd; box-shadow:0 0 0 .25rem rgba(147,197,253,.35)
+        }
+        /* Ensure select dropdown options stay readable */
+        .form-select option{background:#ffffff; color:#0b1220}
+        .form-select option:checked{background:#0ea5a5; color:#ffffff}
+
+    .help{color:#9fb3d1}
+
+            #order .d-flex.gap-2{
+        flex-wrap:wrap;
+        }
+        #order .d-flex.gap-2 .btn{
+        flex:1 1 260px;   /* both stretch evenly */
+        }
+
+        /* Make the "Order via Email" outline readable on light panels */
+        #order .btn-outline-light{
+        color: var(--ink) !important;
+        border-color: #cbd5e1;
+        background:#fff;
+        }
+        #order .btn-outline-light:hover,
+        #order .btn-outline-light:focus{
+        color:#fff !important;
+        background: var(--ink);
+        border-color: var(--ink);
+        }
+
+    /* FOOTER */
+        footer{
+        border-top:1px solid rgba(15,23,42,.08);
+        color:#475569;
+        background:#ffffff;
+        }
+      /* Carousel gallery */
+        #figCarousel.carousel-fade .carousel-item { transition: opacity .6s ease; }
+        .carousel-img{border-radius:1.25rem; overflow:hidden; box-shadow:0 6px 16px rgba(2,6,23,.08)}
+        .carousel-img img{width:100%; height:100%; object-fit:cover; cursor:zoom-in}
+
+        /* indicators & controls in your brand color */
+        #figCarousel.carousel-dark .carousel-indicators [data-bs-target]{background-color:#0ea5a5}
+        #figCarousel .carousel-control-prev, 
+        #figCarousel .carousel-control-next{filter:none}
+
+  </style>
+</head>
+<body>
+  <!-- NAV (optional, align with your site) -->
+  <nav class="navbar navbar-expand-lg fixed-top" style="background:rgba(11,15,26,.6)">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#"><i class="bi bi-cpu me-2"></i>Haidware</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link t ext-white" href="./services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="./team.html">Team</a></li>
+        </ul>
+        <a href="#order" class="btn btn-brand ms-lg-3">Order now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="shine"></div>
+    <div class="container position-relative">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <span class="eyebrow"><i class="bi bi-cube"></i> Image → Figurine • 3D Printing</span>
+          <h1 class="mt-3">Your Image, Your Figurine.</h1>
+          <p class="lead mt-2">Among other things, Haidware has you covered in turning your photo into a custom figurine — designed with care, printed with precision, and packaged for the world.</p>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="chip">🎁 Gifts</span>
+            <span class="chip">🖥️ Desk collectibles</span>
+            <span class="chip">🎂 Birthdays</span>
+            <span class="chip">💍 Weddings</span>
+            <span class="chip">🏆 Awards</span>
+            <span class="chip">😎 Avatars</span>
+          </div>
+          <div class="d-flex gap-3 mt-4">
+            <a class="btn btn-brand btn-lg" href="#order">Order via WhatsApp/Email</a>
+            <a class="btn btn-outline-light btn-lg" href="#pricing">View pricing</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <!-- CAROUSEL GALLERY -->
+                    <div id="figCarousel" class="carousel carousel-fade carousel-dark slide" 
+                        data-bs-ride="carousel" data-bs-interval="4000" data-bs-touch="true" data-bs-pause="hover">
+
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#figCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#figCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#figCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                        <div class="carousel-img ratio ratio-4x3">
+                            <img loading="lazy" src="/box.jpeg" data-full="/box.jpeg" alt="Figurine preview box">
+                        </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                        <div class="carousel-img ratio ratio-4x3">
+                            <img loading="lazy" src="/box1.jpeg" data-full="/box1.jpeg" alt="Pose preview">
+                        </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                        <div class="carousel-img ratio ratio-4x3">
+                            <img loading="lazy" src="/box2.jpeg" data-full="/box2.jpeg" alt="Red shirt figurine">
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#figCarousel" data-bs-slide="prev" aria-label="Previous">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#figCarousel" data-bs-slide="next" aria-label="Next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                    </div>
+                <!-- end carousel -->
+      </div>
+    </div>
+  </header>
+                <!-- Lightbox Modal -->
+            <div class="modal fade lightbox" id="imgLightbox" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content position-relative">
+                <div class="modal-body">
+                    <img id="lbImg" src="" alt="Preview">
+                    <div class="lightbox-nav">
+                    <button type="button" class="btn btn-light" id="lbPrev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+                    <button type="button" class="btn btn-light" id="lbNext" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold">How It Works</h2>
+          <p class="lead">From your photos to a display‑ready figurine in <strong>14–20 business days</strong>.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="timeline panel p-4 p-lg-5">
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h5 class="mb-1">1) Submit Request</h5>
+              <p class="mb-2">Fill out the request and attach <strong>2–3 clear photos</strong> (front, side, and full‑body if possible). Add a short message or pose/style preference.</p>
+            </div>
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h5 class="mb-1">2) 3D Design</h5>
+              <p class="mb-2">Our team transforms your photo into a detailed 3D model. You’ll receive a <strong>preview by email</strong> to approve.</p>
+            </div>
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h5 class="mb-1">3) Finalize & Print</h5>
+              <p class="mb-2">Choose your preferred size. Once approved, we print your figurine with precision detail.</p>
+            </div>
+            <div class="step">
+              <span class="dot"></span>
+              <h5 class="mb-1">4) Packaging & Delivery</h5>
+              <p class="mb-0">Carefully packaged for safe delivery. <strong>Global shipping</strong> available.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="section pt-0" id="why">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <div class="row g-4">
+          <div class="col-lg-4"><h2 class="fw-bold">Why Choose Haidware?</h2></div>
+          <div class="col-lg-8">
+            <div class="row g-3">
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-stars fs-3 text-info"></i><p class="mb-0">High‑resolution, lifelike detail</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-check2-circle fs-3 text-info"></i><p class="mb-0">Personalized design approval before printing</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-cash-coin fs-3 text-info"></i><p class="mb-0">Affordable pricing vs. international alternatives</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-box-seam fs-3 text-info"></i><p class="mb-0">Carefully packaged for durability</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-globe2 fs-3 text-info"></i><p class="mb-0">Delivery across Nigeria and worldwide</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Available Sizes & Pricing</h2>
+      <p class="lead">Prices include 3D design, printing, and secure packaging.</p>
+      <div class="row g-3 mt-2">
+        <!-- repeatable size cards -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="10 cm" data-price="45">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">10 cm</h6><span class="price">$45</span>
+            </div>
+            <div class="small text-muted">Mini Collectible</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="12.5 cm" data-price="55">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">12.5 cm</h6><span class="price">$55</span>
+            </div>
+            <div class="small text-muted">Small</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="15 cm" data-price="70">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">15 cm</h6><span class="price">$70</span>
+            </div>
+            <div class="small text-muted">Standard Gift Size</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="17.5 cm" data-price="80">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">17.5 cm</h6><span class="price">$80</span>
+            </div>
+            <div class="small text-muted">Medium</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="20 cm" data-price="95">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">20 cm</h6><span class="price">$95</span>
+            </div>
+            <div class="small text-muted">Premium Size</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="22.5 cm" data-price="110">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">22.5 cm</h6><span class="price">$110</span>
+            </div>
+            <div class="small text-muted">Large Desk Piece</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="25 cm" data-price="125">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">25 cm</h6><span class="price">$125</span>
+            </div>
+            <div class="small text-muted">Showpiece Edition</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="27.5 cm" data-price="140">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">27.5 cm</h6><span class="price">$140</span>
+            </div>
+            <div class="small text-muted">XL Display</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="size-card p-3 h-100" data-size="30 cm" data-price="160">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0">30 cm</h6><span class="price">$160</span>
+            </div>
+            <div class="small text-muted">Maximum Size</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section class="section pt-0" id="order">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <h2 class="fw-bold mb-2">Place Your Order</h2>
+            <p class="lead">Send us your request via <strong>WhatsApp</strong> or <strong>Email</strong>. Attach 2–3 clear photos (front, side, full‑body if possible). Delivery in <strong>14–20 business days</strong>.</p>
+            <div class="small help">Note: You can also message us first; we’ll guide you through photos and sizing.</div>
+          </div>
+          <div class="col-lg-7">
+            <form id="figurineForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="f-name">Name</label>
+                  <input class="form-control" id="f-name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-email">Email</label>
+                  <input class="form-control" type="email" id="f-email" name="email" required placeholder="you@example.com" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-phone">Phone</label>
+                  <input class="form-control" id="f-phone" name="phone" placeholder="+234 801 234 5678" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-size">Size</label>
+                  <select class="form-select" id="f-size" name="size" required>
+                    <option value="" disabled selected>Select size</option>
+                    <option>10 cm — $45</option>
+                    <option>12.5 cm — $55</option>
+                    <option>15 cm — $70</option>
+                    <option>17.5 cm — $80</option>
+                    <option>20 cm — $95</option>
+                    <option>22.5 cm — $110</option>
+                    <option>25 cm — $125</option>
+                    <option>27.5 cm — $140</option>
+                    <option>30 cm — $160</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-qty">Quantity</label>
+                  <input class="form-control" type="number" id="f-qty" name="qty" min="1" value="1" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="f-notes">Message / Pose preference</label>
+                  <textarea class="form-control" id="f-notes" name="notes" rows="4" placeholder="Short message, pose/style, or any special request…"></textarea>
+                </div>
+                <div class="col-12 d-flex flex-wrap gap-2 mt-1">
+                  <button class="btn btn-brand btn-lg" type="button" id="btnWhatsApp"><i class="bi bi-whatsapp me-2"></i>Order via WhatsApp</button>
+                  <button class="btn btn-outline-light btn-lg" type="button" id="btnEmail"><i class="bi bi-envelope me-2"></i>Order via Email</button>
+                </div>
+                <div class="col-12"><div class="small help">After clicking, attach your 2–3 photos in WhatsApp or your email draft.</div></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 mt-4">
+    <div class="container d-flex justify-content-between small">
+      <span>© <span id="year"></span> Haidware</span>
+      <span><a href="./index.html#about" class="link-light">About</a> · <a class="link-light" href="./team.html">Team</a> · <a class="link-light" href="./services.html">Services</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Click on a pricing card to prefill size
+    document.querySelectorAll('.size-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        const sizeText = card.dataset.size + ' — $' + card.dataset.price;
+        const sel = document.getElementById('f-size');
+        [...sel.options].forEach(o => { if (o.text.startsWith(card.dataset.size)) sel.value = o.text; });
+        document.getElementById('order').scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Order buttons -> WhatsApp / Email
+    (function(){
+      const WA_NUMBER = '+35796013055'; // TODO: replace with your WhatsApp number (international format, no +)
+      const EMAIL_TO  = 'Adesuyi.tobi@haidware.com'; // TODO: replace with your order inbox
+
+      function buildMessage(){
+        const n = document.getElementById('f-name').value || '';
+        const e = document.getElementById('f-email').value || '';
+        const p = document.getElementById('f-phone').value || '';
+        const s = document.getElementById('f-size').value || '';
+        const q = document.getElementById('f-qty').value || '1';
+        const m = document.getElementById('f-notes').value || '';
+        return `Custom Figurine Order\n\nName: ${n}\nEmail: ${e}\nPhone: ${p}\nSize: ${s}\nQuantity: ${q}\n\nMessage/Notes:\n${m}\n\n(Photos will be attached in the chat/email)`;
+      }
+
+      document.getElementById('btnWhatsApp').addEventListener('click', () => {
+        const msg = encodeURIComponent(buildMessage());
+        window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      });
+
+      document.getElementById('btnEmail').addEventListener('click', () => {
+        const subject = encodeURIComponent('Custom Figurine Order');
+        const body = encodeURIComponent(buildMessage());
+        window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+  <script>
+  (function(){
+    // Lightbox for carousel images
+    const wrap = document.getElementById('figCarousel');
+    if (!wrap) return;
+
+    const thumbs = [...wrap.querySelectorAll('.carousel-item img')];
+
+    const lb = new bootstrap.Modal('#imgLightbox', { backdrop: true });
+    const img = document.getElementById('lbImg');
+    const prevBtn = document.getElementById('lbPrev');
+    const nextBtn = document.getElementById('lbNext');
+
+    let idx = 0;
+
+    function show(i){
+      idx = (i + thumbs.length) % thumbs.length;
+      const t = thumbs[idx];
+      img.src = t.dataset.full || t.src;
+      img.alt = t.alt || 'Preview';
+      lb.show();
+    }
+
+    // click any slide image -> open lightbox
+    thumbs.forEach((t,i)=> t.addEventListener('click', ()=> show(i)));
+
+    // lightbox controls
+    prevBtn.addEventListener('click', ()=> show(idx - 1));
+    nextBtn.addEventListener('click', ()=> show(idx + 1));
+
+    // keyboard arrows while lightbox is open
+    document.addEventListener('keydown', (e)=>{
+      const open = document.getElementById('imgLightbox')?.classList.contains('show');
+      if (!open) return;
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+
+    // basic swipe on the large image
+    let startX = 0;
+    img.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+    img.addEventListener('touchend', e => {
+      const dx = (e.changedTouches[0].clientX - startX);
+      if (Math.abs(dx) > 40) (dx > 0 ? show(idx - 1) : show(idx + 1));
+    }, {passive:true});
+  })();
+</script>
+
+</body>
+</html>
