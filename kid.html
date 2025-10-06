@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haidware – Kids’ Smart Audio Companion</title>
+  <meta name="description" content="Screen-free, voice-first learning for kids 5–13. Stories, lessons, and games with safe AI. Join the waiting list." />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f9fc; --panel:#ffffff; --ink:#0b1220; --muted:#475569;
+      --brand:#0ea5a5; --brand-2:#0ea56b; --accent:#2563eb; --ring:rgba(14,165,165,.25);
+    }
+    html,body{background:var(--bg); color:var(--ink); font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
+    a{color:#0ea5a5} a:hover{color:#0a8f8f}
+    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
+    .btn-brand:hover{opacity:.95;color:#fff}
+
+    /* Navbar */
+    .navbar{background:rgba(255,255,255,.85)!important; backdrop-filter:saturate(160%) blur(8px); border-bottom:1px solid rgba(15,23,42,.08)}
+
+    /* Hero */
+    .hero{
+      position:relative; padding-top:7.5rem; padding-bottom:4.5rem; overflow:hidden;
+      background:
+        radial-gradient(900px 420px at 12% -10%, rgba(14,165,165,.20), transparent 60%),
+        radial-gradient(700px 380px at 88% -10%, rgba(249,162,3,.18), transparent 60%),
+        linear-gradient(180deg, #fff, #f7f9fc);
+      border-bottom:1px solid rgba(15,23,42,.08);
+    }
+    .headline{font-size:clamp(2rem,3.6vw,3.1rem); font-weight:800}
+    .sub{color:var(--muted)}
+    .chip{display:inline-flex; gap:.5rem; align-items:center; padding:.45rem .7rem; border-radius:999px; background:rgba(2,6,23,.05); border:1px solid rgba(2,6,23,.08); font-weight:600}
+
+    /* Panels / sections */
+    .section{padding:4rem 0}
+    .panel{background:#fff; border:1px solid rgba(15,23,42,.08); border-radius:1.25rem; box-shadow:0 10px 30px rgba(2,6,23,.08)}
+    .soft{color:var(--muted)}
+
+    /* Feature icons */
+    .ficon{width:3rem;height:3rem;display:grid;place-items:center;border-radius:.9rem;background:rgba(14,165,165,.12);color:var(--brand)}
+
+    /* Timeline */
+    .timeline{position:relative}
+    .timeline::before{content:""; position:absolute; left:1rem; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent), transparent)}
+    .step{position:relative; padding-left:3rem}
+    .step .dot{position:absolute; left:.55rem; top:.25rem; width:16px; height:16px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 .25rem rgba(96,165,250,.18)}
+
+    /* Cards */
+    .card-lite{border:1px solid rgba(15,23,42,.08); border-radius:1rem}
+    .card-lite:hover{transform:translateY(-2px); transition:.25s ease; box-shadow:0 10px 28px rgba(2,6,23,.08)}
+
+    /* Gallery image */
+    .device-shot{border-radius:1.2rem; box-shadow:0 18px 40px rgba(2,6,23,.15)}
+
+    /* Form */
+    .form-control,.form-select{background:#fff;border-color:#e2e8f0;color:#0b1220}
+    .form-control::placeholder{color:#64748b}
+    .form-control:focus,.form-select:focus{border-color:#93c5fd; box-shadow:0 0 0 .25rem rgba(147,197,253,.35)}
+
+    footer{border-top:1px solid rgba(15,23,42,.08); background:#fff; color:#475569}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/"><i class="bi bi-cpu me-2"></i>Haidware</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/team.html">Team</a></li>
+        </ul>
+        <a class="btn btn-brand ms-lg-3" href="#waitlist">Join Waiting List</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <span class="chip"><i class="bi bi-shield-check"></i> Screen-free • Safe AI</span>
+          <h1 class="headline mt-3">Haidware Kids’ Smart Audio Companion</h1>
+          <p class="sub mt-2">A playful companion that makes learning exciting, safe, and fun
+The Haidware Kids’ Companion is a screenfree, AI-powered audio device designed for children ages 5–13.
+It speaks, listens, and responds  bringing stories, lessons, and games to life in a way that’s safe and age appropriate.
+Thanks to WiFi + parental app controls, new activities and lessons are updated regularly
+</p>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="chip"><i class="bi bi-book"></i> Stories & lessons</span>
+            <span class="chip"><i class="bi bi-joystick"></i> Fun games</span>
+            <span class="chip"><i class="bi bi-wifi"></i> Wi-Fi updates</span>
+            <span class="chip"><i class="bi bi-phone"></i> Parent app setup</span>
+          </div>
+          <div class="d-flex gap-3 mt-4">
+            <a class="btn btn-brand btn-lg" href="#waitlist">Join Waiting List</a>
+            <a class="btn btn-outline-dark btn-lg" href="#features">See Features</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <!-- Replace src with your hosted path -->
+          <img class="img-fluid device-shot" alt="Kids’ Smart Audio Companion device photo"
+               src="/kid.jpeg">
+          <!-- Example placeholder used: replace with your uploaded image -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <h2 class="fw-bold mb-2">About the device</h2>
+            <p class="soft mb-0">This smart educational companion is designed for children aged 5–13 years, combining AI-powered conversations with a safe, fun, and age appropriate learning environment.
+Unlike traditional tablets or screens, this device uses voice interaction only with a microphone and speaker ensuring children stay engaged without screen distractions.
+Parents only need the app once: to connect the device to WiFi. After that, the child can use it independently.
+</p>
+          </div>
+          <div class="col-lg-7">
+            <ul class="soft mb-0">
+              <li>Voice-only interaction encourages focus and imagination.</li>
+              <li>Parents connect Wi-Fi once through a simple app; kids use it independently afterward.</li>
+              <li>Regular cloud updates add new lessons, stories, and activities.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Key features</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="ficon"><i class="bi bi-mic-fill"></i></div>
+              <div>
+                <h6 class="mb-1">Voice interaction only</h6>
+                <p class="small soft mb-0">Kids talk naturally; the device listens and replies with clear voice.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="ficon"><i class="bi bi-magic"></i></div>
+              <div>
+                <h6 class="mb-1">Built-in safe AI</h6>
+                <p class="small soft mb-0">Child-friendly assistant with safety filters; avoids unsafe topics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="ficon"><i class="bi bi-wifi"></i></div>
+              <div>
+                <h6 class="mb-1"> Wi-Fi connectivity</h6>
+                <p class="small soft mb-0">Parents use the app once for setup; no constant parental controls required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="ficon"><i class="bi bi-volume-up"></i></div>
+              <div>
+                <h6 class="mb-1">Quality audio system</h6>
+                <p class="small soft mb-0">Sensitive mic + loud, crisp speaker for stories and lessons.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="ficon"><i class="bi bi-eye-slash"></i></div>
+              <div>
+                <h6 class="mb-1"> Screen-free</h6>
+                <p class="small soft mb-0">No distracting apps or social media; learning stays front and center.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="ficon"><i class="bi bi-cloud-arrow-down"></i></div>
+              <div>
+                <h6 class="mb-1"> Cloud updates</h6>
+                <p class="small soft mb-0">Fresh content delivered regularly—new stories, activities, and facts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold">How it works</h2>
+          <p class="soft">From unboxing to daily learning—simple and safe.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="timeline panel p-4 p-lg-5">
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h6 class="mb-1">1) Set up Wi-Fi</h6>
+              <p class="mb-0 soft">Parents open the app once, connect to Wi-Fi, and you’re done.</p>
+            </div>
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h6 class="mb-1">2) Talk & learn</h6>
+              <p class="mb-0 soft">Kids ask questions, hear stories, and play learning games—hands-free.</p>
+            </div>
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h6 class="mb-1">3) Safe by design</h6>
+              <p class="mb-0 soft">Child-safe AI avoids inappropriate topics; voice-only means no screen traps.</p>
+            </div>
+            <div class="step">
+              <span class="dot"></span>
+              <h6 class="mb-1">4) Always up to date</h6>
+              <p class="mb-0 soft">New lessons and stories arrive via the cloud, automatically.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section class="section pt-0" id="why">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <div class="row g-4">
+          <div class="col-lg-4"><h2 class="fw-bold">Why it matters</h2></div>
+          <div class="col-lg-8">
+            <div class="row g-3">
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-lightbulb fs-3 text-info"></i><p class="mb-0 soft">Encourages active learning without screens.</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-shield-lock fs-3 text-info"></i><p class="mb-0 soft">Safe, monitored conversations with AI.</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-currency-exchange fs-3 text-info"></i><p class="mb-0 soft">Affordable and portable compared to tablets or laptops.</p></div></div>
+              <div class="col-md-6"><div class="d-flex gap-3 align-items-start"><i class="bi bi-book fs-3 text-info"></i><p class="mb-0 soft">Perfect for storytelling, Q&A, language learning, and fun facts.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="section" id="waitlist">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-2">Join the waiting list</h2>
+          <p class="soft">Be first to know about launch date and early bird pricing. We’ll email when units are ready.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="panel p-4 p-lg-5">
+            <form id="wlForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="name">Parent/Guardian name</label>
+                  <input class="form-control" id="name" name="name" required placeholder="Your full name" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" type="email" id="email" name="email" required placeholder="you@example.com" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="phone">Phone (optional)</label>
+                  <input class="form-control" id="phone" name="phone" placeholder="+234 801 234 5678" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="age">Child age range</label>
+                  <select class="form-select" id="age" name="age" required>
+                    <option value="" selected disabled>Select age range</option>
+                    <option>5–7</option><option>8–10</option><option>11–13</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="notes">Interests / Notes</label>
+                  <textarea class="form-control" id="notes" rows="3" placeholder="e.g., stories, math games, language learning"></textarea>
+                </div>
+                <div class="col-12 d-flex flex-wrap gap-2">
+                  <button class="btn btn-brand btn-lg" type="button" id="btnWA"><i class="bi bi-whatsapp me-2"></i>Send via WhatsApp</button>
+                  <button class="btn btn-outline-dark btn-lg" type="button" id="btnEmail"><i class="bi bi-envelope me-2"></i>Email my request</button>
+                </div>
+                <div class="col-12"><div class="small soft">We’ll reply with next steps. No spam.</div></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section pt-0" id="faq">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <h2 class="fw-bold mb-3">FAQ</h2>
+        <div class="accordion" id="acc">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">Does it require a phone to use?</button></h2>
+            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#acc">
+              <div class="accordion-body soft">No. Parents use the app once to connect Wi-Fi; after that, kids use the device independently.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">Is the AI safe for kids?</button></h2>
+            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#acc">
+              <div class="accordion-body soft">Yes. Safety filters are built in to avoid inappropriate content and steer conversations toward learning.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">What can my child do?</button></h2>
+            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#acc">
+              <div class="accordion-body soft">Listen to stories, ask questions, learn languages and facts, and play simple voice-based games—screen-free.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 mt-4">
+    <div class="container d-flex justify-content-between small">
+      <span>© <span id="year"></span> Haidware</span>
+      <span><a class="link-dark" href="/index.html#about">About</a> · <a class="link-dark" href="/team.html">Team</a> · <a class="link-dark" href="#waitlist">Join list</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // WhatsApp / Email handlers
+    (function(){
+      const WA_NUMBER = '2340000000000';   // <— replace with your WhatsApp number (no +)
+      const EMAIL_TO  = 'hello@haidware.com'; // <— replace with your inbox
+
+      const name = () => document.getElementById('name').value.trim();
+      const email= () => document.getElementById('email').value.trim();
+      const phone= () => document.getElementById('phone').value.trim();
+      const age  = () => document.getElementById('age').value;
+      const notes= () => document.getElementById('notes').value.trim();
+
+      function buildMsg(){
+        return `Kids’ Smart Audio Companion — Waiting List\n\nName: ${name()}\nEmail: ${email()}\nPhone: ${phone()}\nChild age range: ${age()}\n\nInterests/Notes:\n${notes()}`;
+      }
+
+      document.getElementById('btnWA').addEventListener('click', ()=>{
+        const msg = encodeURIComponent(buildMsg());
+        window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      });
+
+      document.getElementById('btnEmail').addEventListener('click', ()=>{
+        const subject = encodeURIComponent('Join Waiting List — Kids’ Smart Audio Companion');
+        const body = encodeURIComponent(buildMsg());
+        window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+</body>
+</html>

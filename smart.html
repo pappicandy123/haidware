@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haidware — Smart Service Device (Hotels & Restaurants)</title>
+  <meta name="description" content="Touch-based device for hotels, restaurants, and bars: instant ordering, payments, and service requests with cloud dashboards and staff notifications." />
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f9fc; --panel:#ffffff; --ink:#0b1220; --muted:#475569;
+      --brand:#0ea5a5; --brand-2:#0ea56b; --accent:#2563eb; --ring:rgba(14,165,165,.25);
+    }
+    html,body{background:var(--bg); color:var(--ink); font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
+    a{color:#0ea5a5} a:hover{color:#0a8f8f}
+    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
+    .btn-brand:hover{opacity:.95;color:#fff}
+    .btn-outline-dark{border-color:#1f2937}
+
+    /* Navbar */
+    .navbar{background:rgba(255,255,255,.9)!important; backdrop-filter:saturate(160%) blur(8px); border-bottom:1px solid rgba(15,23,42,.08)}
+
+    /* Hero */
+    .hero{
+      position:relative; padding-top:7.5rem; padding-bottom:4.5rem; overflow:hidden;
+      background:
+        radial-gradient(900px 420px at 12% -10%, rgba(14,165,165,.18), transparent 60%),
+        radial-gradient(700px 380px at 88% -10%, rgba(3,105,161,.12), transparent 60%),
+        linear-gradient(180deg, #fff, #f7f9fc);
+      border-bottom:1px solid rgba(15,23,42,.08);
+    }
+    .headline{font-size:clamp(2rem,3.6vw,3.1rem); font-weight:800}
+    .sub{color:var(--muted)}
+    .chip{display:inline-flex; gap:.5rem; align-items:center; padding:.45rem .7rem; border-radius:999px; background:rgba(2,6,23,.05); border:1px solid rgba(2,6,23,.08); font-weight:600}
+    .device-shot{border-radius:1.2rem; box-shadow:0 18px 40px rgba(2,6,23,.15)}
+
+    /* Sections */
+    .section{padding:4rem 0}
+    .panel{background:#fff; border:1px solid rgba(15,23,42,.08); border-radius:1.25rem; box-shadow:0 10px 30px rgba(2,6,23,.08)}
+    .soft{color:var(--muted)}
+
+    /* Cards */
+    .card-lite{border:1px solid rgba(15,23,42,.08); border-radius:1rem}
+    .card-lite:hover{transform:translateY(-2px); transition:.25s ease; box-shadow:0 10px 28px rgba(2,6,23,.08)}
+
+    /* Timeline */
+    .timeline{position:relative}
+    .timeline::before{content:""; position:absolute; left:1rem; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent), transparent)}
+    .step{position:relative; padding-left:3rem}
+    .step .dot{position:absolute; left:.55rem; top:.25rem; width:16px; height:16px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 .25rem rgba(96,165,250,.18)}
+
+    /* Forms */
+    .form-control,.form-select{background:#fff;border-color:#e2e8f0;color:#0b1220}
+    .form-control::placeholder{color:#64748b}
+    .form-control:focus,.form-select:focus{border-color:#93c5fd; box-shadow:0 0 0 .25rem rgba(147,197,253,.35)}
+
+    footer{border-top:1px solid rgba(15,23,42,.08); background:#fff; color:#475569}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/"><i class="bi bi-cpu me-2"></i>Haidware</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/team.html">Team</a></li>
+        </ul>
+        <a class="btn btn-brand ms-lg-3" href="#waitlist">Join Waiting List</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <span class="chip"><i class="bi bi-bank2"></i> Hotels • Restaurants • Bars</span>
+          <h1 class="headline mt-3">Smart Service Device</h1>
+          <p class="sub mt-2">A modern, touch-based device that lets guests browse menus, place orders, request services, and make instant payments. Wi-Fi powered, IoT ready. </p>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="chip"><i class="bi bi-list-ul"></i> Browse menus</span>
+            <span class="chip"><i class="bi bi-bag-check"></i> Instant ordering</span>
+            <span class="chip"><i class="bi bi-credit-card"></i> Quick payment</span>
+            <span class="chip"><i class="bi bi-bell"></i> Staff notified</span>
+          </div>
+          <div class="d-flex gap-3 mt-4">
+            <a class="btn btn-brand btn-lg" href="#waitlist">Join Waiting List</a>
+            <a class="btn btn-outline-dark btn-lg" href="#features">See features</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <!-- Replace src with your actual image path -->
+          <img class="img-fluid device-shot" alt="Haidware Smart Service Device"
+               src="/smart.jpeg">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <h2 class="fw-bold mb-2">Serve faster with fewer touchpoints</h2>
+            <p class="soft mb-0">Replace slow, staff dependent steps waiting for menus, placing orders, and chasing bills with a single device. Guests only meet staff when food or services arrive. </p>
+          </div>
+          <div class="col-lg-7">
+            <ul class="soft mb-0">
+              <li>Touchscreen interface that guests can navigate at their own pace.</li>
+              <li>Orders and payments are sent instantly to your dashboards; kitchens and bars receive real time notifications.</li>
+              <li>Menus update dynamically no outdated or unavailable items. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Key features</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="chip"><i class="bi bi-tablet-landscape"></i></div>
+              <div>
+                <h6 class="mb-1">Interactive Touchscreen</h6>
+                <p class="small soft mb-0">Guests browse the menu and explore services at their own pace.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="chip"><i class="bi bi-bag-check-fill"></i></div>
+              <div>
+                <h6 class="mb-1">Instant Ordering</h6>
+                <p class="small soft mb-0">Skip the wait for a waiter. Orders are placed directly from the device.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="chip"><i class="bi bi-cloud-check"></i></div>
+              <div>
+                <h6 class="mb-1">IoT-Ready & Cloud Dashboards</h6>
+                <p class="small soft mb-0">Skip the wait for a waiter. Orders are placed directly from the device.Fully integrated for staff alerts, order tracking, and payments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="chip"><i class="bi bi-credit-card-2-front"></i></div>
+              <div>
+                <h6 class="mb-1">Seamless Payment</h6>
+                <p class="small soft mb-0">Secure, built-in payment options no waiting for the billSkip the wait for a waiter. Orders are placed directly from the device..</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="chip"><i class="bi bi-bell-fill"></i></div>
+              <div>
+                <h6 class="mb-1">Real-Time Staff Notifications</h6>
+                <p class="small soft mb-0">Skip the wait for a waiter. Orders are placed directly from the device.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-lite p-3 h-100 d-flex">
+            <div class="d-flex gap-3">
+              <div class="chip"><i class="bi bi-arrow-repeat"></i></div>
+              <div>
+                <h6 class="mb-1">Dynamic Menu Updates</h6>
+                <p class="small soft mb-0">Menus are always up to date. No outdated items, no unavailable dishes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel p-4 p-lg-5 mt-4">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <h5 class="mb-2">Benefits for Guests</h5>
+            <ul class="soft mb-0">
+              <li>No waiting for menus or staff availability</li>
+              <li>Faster ordering & reordering</li>
+              <li>Cashless, stress free payment</li>
+              <li>Better control over the dining experience</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <h5 class="mb-2">Benefits for Businesses</h5>
+            <ul class="soft mb-0">
+              <li>Reduce staff workload on repetitive tasks</li>
+              <li>Increase table turnover with faster service</li>
+              <li>Eliminate missed or wrong orders</li>
+              <li>Improve customer satisfaction and loyalty</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold">How it works</h2>
+          <p class="soft">From browse → order → pay → notify—fully digital and effortless.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="timeline panel p-4 p-lg-5">
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h6 class="mb-1">1) Browse</h6>
+              <p class="mb-0 soft">Guests explore menus and services on the touchscreen.</p>
+            </div>
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h6 class="mb-1">2) Order</h6>
+              <p class="mb-0 soft">Items are added and sent directly to your cloud dashboards.</p>
+            </div>
+            <div class="step mb-4">
+              <span class="dot"></span>
+              <h6 class="mb-1">3) Pay</h6>
+              <p class="mb-0 soft">Secure, instant payments—no waiting for the bill.</p>
+            </div>
+            <div class="step">
+              <span class="dot"></span>
+              <h6 class="mb-1">4) Notify</h6>
+              <p class="mb-0 soft">Kitchen/bar receives real-time notifications for fast fulfillment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS MATTERS -->
+  <section class="section pt-0" id="why">
+    <div class="container">
+      <div class="panel p-4 p-lg-5">
+        <div class="row g-4">
+          <div class="col-lg-4"><h2 class="fw-bold">Why this matters</h2></div>
+          <div class="col-lg-8">
+            <p class="soft mb-2">This device makes traditional service models obsolete streamlining operations, improving efficiency, and giving guests a modern, digital-first experience</p>
+            <ul class="soft mb-0">
+              <li>Faster service</li>
+              <li>Happier guests</li>
+              <li>Higher revenues</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITING LIST -->
+  <section class="section" id="waitlist">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-2">Be part of the change</h2>
+          <p class="soft">The Smart Service Device is Haidware’s upcoming innovation that will redefine service for businesses worldwide. Designed to bring IoT, touchscreen convenience, and Wi-Fi powered digital service to the hospitality industry</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="panel p-4 p-lg-5">
+            <form id="wlForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="name">Contact name</label>
+                  <input class="form-control" id="name" required placeholder="Your full name">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="company">Business / Property</label>
+                  <input class="form-control" id="company" required placeholder="e.g., GreenLeaf Hotel">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" type="email" id="email" required placeholder="you@company.com">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="phone">Phone (optional)</label>
+                  <input class="form-control" id="phone" placeholder="+234 801 234 5678">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="notes">Message / Requirements</label>
+                  <textarea class="form-control" id="notes" rows="3" placeholder="Number of units, POS/payment needs, integration requests…"></textarea>
+                </div>
+                <div class="col-12 d-flex flex-wrap gap-2">
+                  <button class="btn btn-brand btn-lg" type="button" id="btnWA"><i class="bi bi-whatsapp me-2"></i>Send via WhatsApp</button>
+                  <button class="btn btn-outline-dark btn-lg" type="button" id="btnEmail"><i class="bi bi-envelope me-2"></i>Email my request</button>
+                </div>
+                <div class="col-12"><div class="small soft">We’ll reply with timelines, pricing, and pilot options.</div></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 mt-4">
+    <div class="container d-flex justify-content-between small">
+      <span>© <span id="year"></span> Haidware</span>
+      <span><a class="link-dark" href="/index.html#about">About</a> · <a class="link-dark" href="/team.html">Team</a> · <a class="link-dark" href="#waitlist">Join list</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // WhatsApp / Email handlers
+    (function(){
+      const WA_NUMBER = '2340000000000';   // <- replace with your WhatsApp number (no +)
+      const EMAIL_TO  = 'hello@haidware.com'; // <- replace with your inbox
+
+      const v = id => document.getElementById(id).value.trim();
+      function buildMsg(){
+        return `Smart Service Device — Waiting List\n\nName: ${v('name')}\nBusiness: ${v('company')}\nEmail: ${v('email')}\nPhone: ${v('phone')}\n\nNotes:\n${v('notes')}`;
+      }
+
+      document.getElementById('btnWA').addEventListener('click', ()=>{
+        const msg = encodeURIComponent(buildMsg());
+        window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      });
+      document.getElementById('btnEmail').addEventListener('click', ()=>{
+        const subject = encodeURIComponent('Join Waiting List — Smart Service Device');
+        const body = encodeURIComponent(buildMsg());
+        window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+</body>
+</html>
