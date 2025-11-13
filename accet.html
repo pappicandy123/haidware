@@ -50,6 +50,12 @@
 
     /* Feature list */
     .feature i{font-size:1.5rem; width:3rem; height:3rem; display:grid; place-items:center; border-radius:1rem; background:rgba(14,165,165,.12); color:var(--brand)}
+    /* review */
+    .review-card{background:#fff;border:1px solid #e6e9ef;border-radius:1.25rem;box-shadow:0 8px 24px rgba(2,6,23,.06)}
+    .review-mark{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(14,165,165,.12);color:#0ea5a5}
+    .review-quote{font-size:1.02rem;line-height:1.55}
+    .review-name{font-weight:600}
+    .review-pill{display:inline-block;font-size:.8rem;padding:.25rem .6rem;border-radius:999px;background:rgba(2,6,23,.05);border:1px solid rgba(2,6,23,.08);color:#475569}
 
     /* Footer */
     footer{background:#0b1220; color:#cbd5e1}
@@ -71,7 +77,7 @@
           <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
           <li class="nav-item"><a class="nav-link" href="#tech">Technology</a></li>
           <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#studies">Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
           <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
         </ul>
         <a href="#preorder" class="btn btn-brand ms-lg-3">Pre‑order ACETT</a>
@@ -84,7 +90,7 @@
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-lg-7">
-          <h1 class="headline">ACETT — Empowering the Deaf Through Touch</h1>
+          <h1 class="headline">ACETT Empowering the Deaf Through Touch</h1>
           <p class="sub mt-3">(Auditory Communication Enhancement Through Touch)</p>
           <p class="mt-2">ACETT converts the sound of the world into meaningful vibrations you can feel in real time. ACETT brings sound awareness, safer navigation, and more natural conversation to Deaf and Hard‑of‑Hearing users.</p>
           <div class="mt-4 d-flex gap-3">
@@ -102,51 +108,62 @@
   </header>
 
   <!-- VIDEOS -->
-  <section class="section bg-white" id="videos">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title">See ACETT in action</h2>
-        <!-- <p class="section-sub">Add your three videos here. These blocks are responsive and support MP4 files or YouTube/Vimeo embeds.</p> -->
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="video-card rounded-2xl p-2">
-            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
-              <!-- Replace src with your video URL or YouTube embed -->
-              <iframe src="/Auditory Communication Enhancement Through Touch.mp4" title="ACCET demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="p-3">
-              <h6 class="mb-1">Auditory Communication Enhancement Through Touch</h6>
-              <p class="small text-muted mb-0">ACETT (Auditory Communication Enhancement Through Touch) enables listening through touch by converting the sounds of the environment including speech, into vibrations that the users feel on their hands. Deaf and Hard of Hearing People receive a unique sound experience through the device, which enhances their awareness of the sounds around them</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="video-card rounded-2xl p-2">
-            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
-              <iframe src="/Hearing with Your Skin_ Meet ACETT.mp4" title="ACCET demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="p-3">
-              <h6 class="mb-1">   
-Hearing with Your Skin: Meet ACETT</h6>
-              <p class="small text-muted mb-0">Feel the rhythm and structure of speech through touch cues.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="video-card rounded-2xl p-2">
-            <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
-              <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="ACCET demo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="p-3">
-              <h6 class="mb-1">Urban safety</h6>
-              <p class="small text-muted mb-0">Environmental sounds like alarms or horns mapped to vivid haptics.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+ <!-- VIDEOS -->
+<section class="section bg-white" id="videos">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">See ACETT in action</h2>
     </div>
-  </section>
+
+    <div class="row g-4">
+      <!-- Video 1 -->
+      <div class="col-md-4">
+        <div class="video-card rounded-2xl p-2">
+          <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="/Picture9.png"
+              style="width:100%;height:100%;object-fit:cover;">
+              <source src="/Auditory Communication Enhancement Through Touch.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-3">
+            <h6 class="mb-1">Auditory Communication Enhancement Through Touch</h6>
+            <p class="small text-muted mb-0">
+              ACETT (Auditory Communication Enhancement Through Touch) enables listening through touch by converting the sounds of the environment including speech, into vibrations that the users feel on their hands. Deaf and Hard of Hearing People receive a unique sound experience through the device, which enhances their awareness of the sounds around them
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="col-md-4">
+        <div class="video-card rounded-2xl p-2">
+          <div class="ratio ratio-16x9 rounded-2xl overflow-hidden">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              style="width:100%;height:100%;object-fit:cover;">
+              <source src="/Hearing with Your Skin_ Meet ACETT.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-3">
+            <h6 class="mb-1">Hearing with Your Skin: Meet ACETT</h6>
+            <p class="small text-muted mb-0">Feel the rhythm and structure of speech through touch cues.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- If you add a 3rd video later, copy one of the blocks above and change the source -->
+    </div>
+  </div>
+</section>
+
 
   <!-- OVERVIEW -->
   <section class="section" id="overview">
@@ -154,7 +171,7 @@ Hearing with Your Skin: Meet ACETT</h6>
       <div class="row g-5 align-items-center">
         <div class="col-lg-6">
           <h3 class="section-title">What ACETT does</h3>
-          <p class="section-sub">ACETT turns sounds into vibrations—allowing Deaf and Hard‑of‑Hearing individuals to experience auditory information through touch.</p>
+          <p class="section-sub">ACETT turns sounds into vibrations—allowing Deaf and Hard of Hearing individuals to experience auditory information through touch.</p>
           <ul class="text-muted">
             <li>Converts speech and environmental sounds to tactile patterns in real time.</li>
             <li>Designed for inclusive learning, situational awareness, and natural communication.</li>
@@ -174,7 +191,7 @@ Hearing with Your Skin: Meet ACETT</h6>
               <i class="bi bi-cpu"></i>
               <div>
                 <div class="fw-semibold">Signal processing</div>
-                <div class="small text-muted">Proprietary DSP extracts features and encodes patterns.</div>
+                <div class="small text-muted">Proprietary DSP and app algorithms extract audio features, visualize patterns, and enable text-to-speech (TTS) and speech-to-text (STT) interaction.</div>
               </div>
             </div>
             <div class="col-6 d-flex gap-3 feature">
@@ -182,6 +199,13 @@ Hearing with Your Skin: Meet ACETT</h6>
               <div>
                 <div class="fw-semibold">Tactile interface</div>
                 <div class="small text-muted">Haptics deliver clear, comfortable vibrations on skin.</div>
+              </div>
+            </div>
+            <div class="col-6 d-flex gap-3 feature">
+              <i class="bi bi-person"></i>
+              <div>
+                <div class="fw-semibold">Interactive learning</div>
+                <div class="small text-muted">App based training mode and quiz time help users master vibration patterns and improve recognition skills.</div>
               </div>
             </div>
             <div class="col-6 d-flex gap-3 feature">
@@ -235,7 +259,7 @@ Hearing with Your Skin: Meet ACETT</h6>
         <div class="col-md-4">
           <div class="p-4 bg-white rounded-2xl h-100 border">
             <h6>Situational awareness</h6>
-            <p class="text-muted mb-0">Feel critical sounds—alarms, horns, doorbells—translated into unmistakable vibration patterns.</p>
+            <p class="text-muted mb-0">Feel critical sounds alarms, horns, doorbells translated into unmistakable vibration patterns.</p>
           </div>
         </div>
         <div class="col-md-4">
@@ -249,25 +273,63 @@ Hearing with Your Skin: Meet ACETT</h6>
   </section>
 
   <!-- STUDIES / TESTING -->
-  <section class="section bg-white" id="studies">
-    <div class="container">
-      <div class="row g-5 align-items-start">
-        <div class="col-lg-6">
-          <h3 class="section-title">Testing & Studies</h3>
-          <p class="section-sub">ACETT is being refined with feedback from Deaf and Hard‑of‑Hearing testers and formal study settings. Early results indicate improved recognition of words when ACCET is active compared with inactive conditions.*</p>
-          <p class="small text-muted">* Summary based on partner study updates; not a medical device. Final performance depends on environment and user training.</p>
-        </div>
-        <div class="col-lg-6">
-          <div class="p-4 bg-white border rounded-2xl">
-            <h6 class="mb-2"><i class="bi bi-people me-2"></i>Beta testing</h6>
-            <p class="small text-muted mb-3">Iterative trials with hearing‑impaired participants inform ergonomics, comfort, and haptic vocabulary.</p>
-            <h6 class="mb-2"><i class="bi bi-clipboard2-pulse me-2"></i>Clinical‑style evaluations</h6>
-            <p class="small text-muted mb-0">Pilot sessions measure speech awareness trends and task performance with/without haptic assistance.</p>
+  <!-- REVIEWS -->
+      <section class="section bg-white" id="reviews">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h3 class="section-title">What Our Beta Testers Are Saying</h3>
+            <p class="section-sub">The Acett device was developed through a user driven design approach, in close collaboration with members of the Deaf community. Three dedicated beta testers participated throughout the development cycle, testing every new iteration and providing feedback that shaped the final version of Acett.</p>
+          </div>
+
+          <div class="row g-4">
+            <!-- Review A -->
+            <div class="col-md-4">
+              <article class="h-100 p-4 review-card">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="review-mark"><i class="bi bi-chat-quote"></i></div>
+                  <div>
+                    <div class="review-name">Mr. A</div>
+                    <div class="small text-muted">Beta tester</div>
+                  </div>
+                </div>
+                <p class="review-quote mb-3">“I’ve tested several iterations of ACETT, and each version has shown real improvement in vibration feedback and response accuracy. The latest model allows me to clearly distinguish between speech tones and background sounds. It’s reliable, fast, and feels like a true communication companion.”</p>
+                <!-- <span class="review-pill">“Communication companion”</span> -->
+              </article>
+            </div>
+
+            <!-- Review B -->
+            <div class="col-md-4">
+              <article class="h-100 p-4 review-card">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="review-mark"><i class="bi bi-stars"></i></div>
+                  <div>
+                    <div class="review-name">Mr. B</div>
+                    <div class="small text-muted">Beta tester</div>
+                  </div>
+                </div>
+                <p class="review-quote mb-3">“I’ve watched ACETT evolve month after month from basic vibration mapping to advanced capabilities where each sound now has its own unique vibration pattern. This helps me identify different sounds more easily and understand speech flow better.”</p>
+                <!-- <span class="review-pill">Unique patterns</span> -->
+              </article>
+            </div>
+
+            <!-- Review C -->
+            <div class="col-md-4">
+              <article class="h-100 p-4 review-card">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="review-mark"><i class="bi bi-heart"></i></div>
+                  <div>
+                    <div class="review-name">Mr. C</div>
+                    <div class="small text-muted">Beta tester</div>
+                  </div>
+                </div>
+                <p class="review-quote mb-3">“As someone who has tried different assistive devices, ACETT stands out because it feels personal. It’s not just another gadget it’s something built with us, not just for us. I’m proud to have been part of the testing process and to see how far it has come.”</p>
+                <!-- <span class="review-pill">Built with us</span> -->
+              </article>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+
 
   <!-- FAQ -->
   <section class="section" id="faq">
@@ -283,7 +345,7 @@ Hearing with Your Skin: Meet ACETT</h6>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a2">How long does the battery last?</button></h2>
-          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccet"><div class="accordion-body">Designed for a full day of typical use. Exact runtime varies with vibration intensity and environment.</div></div>
+          <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccet"><div class="accordion-body">Full charged device lasts for 6 hours </div></div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="q3"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#a3">Can I train to recognize patterns?</button></h2>
