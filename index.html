@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Haidware – Robotics & Electronics Kits</title>
-  <meta name="description" content="Haidware: robotics parts, sensors, and DIY kits. Learn, build, and ship your next project." />
+  <meta name="description"
+    content="Haidware: robotics parts, sensors, and DIY kits. Learn, build, and ship your next project." />
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,169 +15,359 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --brand:#0ea5a5;       /* teal */
-      --brand-2:#0ea56b;     /* green tint */
-      --ink:#0f172a;         /* slate-900 */
-      --muted:#475569;       /* slate-600 */
-      --bg:#f8fafc;          /* slate-50 */
-      --card:#ffffff;
-      --ring:rgba(14,165,165,.25);
+    :root {
+      --brand: #0ea5a5;
+      /* teal */
+      --brand-2: #0ea56b;
+      /* green tint */
+      --ink: #0f172a;
+      /* slate-900 */
+      --muted: #475569;
+      /* slate-600 */
+      --bg: #f8fafc;
+      /* slate-50 */
+      --card: #ffffff;
+      --ring: rgba(14, 165, 165, .25);
     }
-    html,body{font-family: 'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial; color:var(--ink); background:var(--bg)}
+
+    html,
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial;
+      color: var(--ink);
+      background: var(--bg)
+    }
 
     /* Navbar */
-    .navbar{backdrop-filter:saturate(150%) blur(8px);}
-    .navbar .nav-link{font-weight:500}
-    .btn-brand{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff; border:none}
-    .btn-brand:hover{opacity:.95; color:#fff}
+    .navbar {
+      backdrop-filter: saturate(150%) blur(8px);
+    }
+
+    .navbar .nav-link {
+      font-weight: 500
+    }
+
+    .btn-brand {
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      color: #fff;
+      border: none
+    }
+
+    .btn-brand:hover {
+      opacity: .95;
+      color: #fff
+    }
 
     /* Hero */
-    .hero{position:relative; padding-top:7rem; padding-bottom:5rem; background: radial-gradient(60% 80% at 20% 20%, rgba(14,165,165,.15), transparent 60%),
-                                     radial-gradient(60% 80% at 80% 0%, rgba(14,165,107,.12), transparent 60%);}    
-    .hero .headline{font-size: clamp(2rem, 4vw, 3.25rem); font-weight:700; line-height:1.1}
-    .hero .sub{color:var(--muted); max-width:48rem}
-    .hero-img{border-radius:1.25rem; box-shadow:0 10px 30px rgba(2,6,23,.2);}
+    .hero {
+      position: relative;
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+      background: radial-gradient(60% 80% at 20% 20%, rgba(14, 165, 165, .15), transparent 60%),
+        radial-gradient(60% 80% at 80% 0%, rgba(14, 165, 107, .12), transparent 60%);
+    }
+
+    .hero .headline {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.1
+    }
+
+    .hero .sub {
+      color: var(--muted);
+      max-width: 48rem
+    }
+
+    .hero-img {
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, .2);
+    }
 
     /* Sections */
-    .section{padding: 5rem 0}
-    .section-title{font-weight:700; letter-spacing:.3px}
-    .section-sub{color:var(--muted)}
+    .section {
+      padding: 5rem 0
+    }
+
+    .section-title {
+      font-weight: 700;
+      letter-spacing: .3px
+    }
+
+    .section-sub {
+      color: var(--muted)
+    }
 
     /* Cards */
-    .card{border:1px solid #e6e9ef; box-shadow:0 2px 6px rgba(2,6,23,.04)}
-    .card:hover{transform:translateY(-2px); transition:.2s ease; box-shadow:0 8px 24px rgba(2,6,23,.08)}
-    .badge-soft{background:rgba(14,165,165,.1); color:var(--brand); border:1px solid rgba(14,165,165,.2)}
+    .card {
+      border: 1px solid #e6e9ef;
+      box-shadow: 0 2px 6px rgba(2, 6, 23, .04)
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: .2s ease;
+      box-shadow: 0 8px 24px rgba(2, 6, 23, .08)
+    }
+
+    .badge-soft {
+      background: rgba(14, 165, 165, .1);
+      color: var(--brand);
+      border: 1px solid rgba(14, 165, 165, .2)
+    }
 
     /* Feature list */
-    .feature i{font-size:1.75rem; width:3.25rem; height:3.25rem; display:grid; place-items:center; border-radius:1rem; background:rgba(14,165,165,.12); color:var(--brand)}
+    .feature i {
+      font-size: 1.75rem;
+      width: 3.25rem;
+      height: 3.25rem;
+      display: grid;
+      place-items: center;
+      border-radius: 1rem;
+      background: rgba(14, 165, 165, .12);
+      color: var(--brand)
+    }
 
     /* Logo strip */
-    .logo-strip img{opacity:.6; filter:grayscale(100%); transition:.2s}
-    .logo-strip img:hover{opacity:1; filter:none}
+    .logo-strip img {
+      opacity: .6;
+      filter: grayscale(100%);
+      transition: .2s
+    }
+
+    .logo-strip img:hover {
+      opacity: 1;
+      filter: none
+    }
 
     /* FAQ */
-    .accordion-button:focus{box-shadow:0 0 0 .25rem var(--ring)}
+    .accordion-button:focus {
+      box-shadow: 0 0 0 .25rem var(--ring)
+    }
 
     /* Footer */
-    footer{background:#0b1220; color:#cbd5e1}
-    footer a{color:#cbd5e1; text-decoration:none}
-    footer a:hover{color:#fff}
+    footer {
+      background: #0b1220;
+      color: #cbd5e1
+    }
 
-    .shadow-ring{box-shadow:0 0 0 .25rem var(--ring)}
-    .rounded-2xl{border-radius:1.25rem}
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none
+    }
+
+    footer a:hover {
+      color: #fff
+    }
+
+    .shadow-ring {
+      box-shadow: 0 0 0 .25rem var(--ring)
+    }
+
+    .rounded-2xl {
+      border-radius: 1.25rem
+    }
 
     /* Back to top */
-    #backToTop{position:fixed; right:1rem; bottom:1rem; display:none; z-index:1020}
+    #backToTop {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      display: none;
+      z-index: 1020
+    }
 
     /* ======= Printable Promo (Home) ======= */
-.promo-alert{
-  display:flex; align-items:center; gap:1rem;
-  background:linear-gradient(90deg,#0ea5a5,#0ea56b);
-  color:#fff; border-radius:1rem; padding:.9rem 1.1rem;
-  border:1px solid rgba(255,255,255,.25);
-  box-shadow:0 10px 24px rgba(14,165,165,.25);
-  position:relative; overflow:hidden;
-}
-.promo-alert::after{
-  /* subtle sheen */
-  content:""; position:absolute; inset:-40% auto -40% -30%;
-  width:50%; transform:skewX(-20deg); 
-  background:radial-gradient(closest-side,rgba(255,255,255,.25),transparent 60%);
-  animation:promoSheen 8s linear infinite;
-}
-@keyframes promoSheen{
-  0%{left:-40%} 55%{left:120%} 100%{left:120%}
-}
+    .promo-alert {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(90deg, #0ea5a5, #0ea56b);
+      color: #fff;
+      border-radius: 1rem;
+      padding: .9rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, .25);
+      box-shadow: 0 10px 24px rgba(14, 165, 165, .25);
+      position: relative;
+      overflow: hidden;
+    }
 
-.promo-link{display:flex; align-items:center; gap:.85rem; text-decoration:none; color:inherit; flex:1}
-.promo-badge{display:inline-flex; align-items:center; gap:.35rem; 
-  background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
-  padding:.25rem .55rem; border-radius:999px; font-weight:600; letter-spacing:.3px; font-size:.8rem
-}
-.promo-text{font-weight:600}
-.promo-cta{display:inline-flex; align-items:center; gap:.4rem; 
-  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28);
-  padding:.4rem .7rem; border-radius:.7rem; font-weight:600}
-.promo-cta i{transition:.2s ease}
-.promo-link:hover .promo-cta i{transform:translateX(3px)}
+    .promo-alert::after {
+      /* subtle sheen */
+      content: "";
+      position: absolute;
+      inset: -40% auto -40% -30%;
+      width: 50%;
+      transform: skewX(-20deg);
+      background: radial-gradient(closest-side, rgba(255, 255, 255, .25), transparent 60%);
+      animation: promoSheen 8s linear infinite;
+    }
 
-.promo-close{
-  position:absolute; right:.4rem; top:.4rem; z-index:1;
-  filter:invert(1) brightness(2); opacity:.85
-}
+    @keyframes promoSheen {
+      0% {
+        left: -40%
+      }
 
-/* Responsive layout */
-@media (max-width: 575.98px){
-  .promo-alert{flex-wrap:wrap; gap:.6rem; padding: .8rem .9rem}
-  .promo-text{flex-basis:100%}
-}
-/* ==== PROMO: responsive fixes ==== */
-.promo-alert{
-  width:100%;
-  max-width:100%;
-  box-sizing:border-box;
-}
+      55% {
+        left: 120%
+      }
 
-.promo-link{
-  min-width:0;                 /* allow text to shrink instead of overflow */
-  flex-wrap:wrap;              /* wrap when needed */
-}
+      100% {
+        left: 120%
+      }
+    }
 
-.promo-text{
-  min-width:0;
-  line-height:1.3;
-  word-break:break-word;       /* avoid overflow on very narrow widths */
-  hyphens:auto;
-  font-size:clamp(.95rem, 2.8vw, 1rem);
-}
+    .promo-link {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      text-decoration: none;
+      color: inherit;
+      flex: 1
+    }
 
-/* Make the CTA readable on narrow screens */
-.promo-cta{
-  flex:0 0 auto;
-  white-space:nowrap;
-}
+    .promo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .35);
+      padding: .25rem .55rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      font-size: .8rem
+    }
 
-/* Mobile-first stack: badge → text → full-width CTA  */
-@media (max-width: 575.98px){
-  .promo-link{
-    display:grid;
-    grid-template-columns: 1fr;
-    row-gap:.5rem;
-    align-items:start;
-  }
-  .promo-badge{
-    justify-self:start;
-    margin-bottom:.1rem;
-  }
-  .promo-text{
-    grid-column:1 / -1;
-  }
-  .promo-cta{
-    grid-column:1 / -1;
-    justify-self:stretch;
-    text-align:center;
-    padding:.6rem .8rem;
-    border-radius:.65rem;
-  }
-  .promo-alert{padding:.85rem .95rem; border-radius:.875rem}
-}
+    .promo-text {
+      font-weight: 600
+    }
 
-/* Small tablets: give text more room, keep CTA visible */
-@media (min-width: 576px) and (max-width: 767.98px){
-  .promo-link{
-    display:grid;
-    grid-template-columns: 1fr auto;
-    column-gap:.75rem;
-    row-gap:.35rem;
-  }
-  .promo-badge{grid-column:1 / 2}
-  .promo-text{grid-column:1 / 2}
-  .promo-cta{grid-column:2 / 3; align-self:center}
-}
+    .promo-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .28);
+      padding: .4rem .7rem;
+      border-radius: .7rem;
+      font-weight: 600
+    }
 
+    .promo-cta i {
+      transition: .2s ease
+    }
+
+    .promo-link:hover .promo-cta i {
+      transform: translateX(3px)
+    }
+
+    .promo-close {
+      position: absolute;
+      right: .4rem;
+      top: .4rem;
+      z-index: 1;
+      filter: invert(1) brightness(2);
+      opacity: .85
+    }
+
+    /* Responsive layout */
+    @media (max-width: 575.98px) {
+      .promo-alert {
+        flex-wrap: wrap;
+        gap: .6rem;
+        padding: .8rem .9rem
+      }
+
+      .promo-text {
+        flex-basis: 100%
+      }
+    }
+
+    /* ==== PROMO: responsive fixes ==== */
+    .promo-alert {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .promo-link {
+      min-width: 0;
+      /* allow text to shrink instead of overflow */
+      flex-wrap: wrap;
+      /* wrap when needed */
+    }
+
+    .promo-text {
+      min-width: 0;
+      line-height: 1.3;
+      word-break: break-word;
+      /* avoid overflow on very narrow widths */
+      hyphens: auto;
+      font-size: clamp(.95rem, 2.8vw, 1rem);
+    }
+
+    /* Make the CTA readable on narrow screens */
+    .promo-cta {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    /* Mobile-first stack: badge → text → full-width CTA  */
+    @media (max-width: 575.98px) {
+      .promo-link {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: .5rem;
+        align-items: start;
+      }
+
+      .promo-badge {
+        justify-self: start;
+        margin-bottom: .1rem;
+      }
+
+      .promo-text {
+        grid-column: 1 / -1;
+      }
+
+      .promo-cta {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        text-align: center;
+        padding: .6rem .8rem;
+        border-radius: .65rem;
+      }
+
+      .promo-alert {
+        padding: .85rem .95rem;
+        border-radius: .875rem
+      }
+    }
+
+    /* Small tablets: give text more room, keep CTA visible */
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      .promo-link {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: .75rem;
+        row-gap: .35rem;
+      }
+
+      .promo-badge {
+        grid-column: 1 / 2
+      }
+
+      .promo-text {
+        grid-column: 1 / 2
+      }
+
+      .promo-cta {
+        grid-column: 2 / 3;
+        align-self: center
+      }
+    }
   </style>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#mainNav" tabindex="0">
 
   <!-- NAV -->
@@ -184,13 +376,15 @@
       <a class="navbar-brand fw-bold" href="#home">
         <i class="bi bi-cpu me-2 text-teal"></i>Haidware
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Products</a>
             <ul class="dropdown-menu" aria-labelledby="productsDropdown">
               <li><a class="dropdown-item" href="/accet.html">ACETT</a></li>
               <li><a class="dropdown-item" href="/kid.html">Haidware 1</a></li>
@@ -218,19 +412,21 @@
   <!-- HERO -->
   <header id="home" class="hero">
     <div class="container">
-          <!-- Printable Promo Banner -->
-    <div id="promoPrintable" class="promo-alert mb-4" role="region" aria-label="Promotion: Printable 3D Figurines">
-      <a class="promo-link" href="/product.html">  <!-- change to your actual product page path -->
-        <span class="promo-badge"><i class="bi bi-cube"></i> Printable</span>
-        <span class="promo-text">Turn your photo into a custom <u>3D Figurine</u> designed & printed by Haidware.</span>
-        <span class="promo-cta">Order now <i class="bi bi-arrow-right"></i></span>
-      </a>
-      <button class="btn btn-sm btn-close promo-close" type="button" aria-label="Dismiss"></button>
-    </div>
+      <!-- Printable Promo Banner -->
+      <div id="promoPrintable" class="promo-alert mb-4" role="region" aria-label="Promotion: Printable 3D Figurines">
+        <a class="promo-link" href="/product.html"> <!-- change to your actual product page path -->
+          <span class="promo-badge"><i class="bi bi-cube"></i> Printable</span>
+          <span class="promo-text">Turn your photo into a custom <u>3D Figurine</u> designed & printed by
+            Haidware.</span>
+          <span class="promo-cta">Order now <i class="bi bi-arrow-right"></i></span>
+        </a>
+        <button class="btn btn-sm btn-close promo-close" type="button" aria-label="Dismiss"></button>
+      </div>
 
       <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
@@ -241,15 +437,16 @@
               <div class="col-lg-6">
                 <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">Flagship</span>
                 <h1 class="headline">ACETT— Assistive sensory device</h1>
-                <p class="sub mt-3"> Using advanced sound sensors, proprietary signal processing, and a tactile feedback interface, ACETT translates speech and environmental sounds into real-time vibrations on the user’s skin.</p>
+                <p class="sub mt-3"> Using advanced sound sensors, proprietary signal processing, and a tactile feedback
+                  interface, ACETT translates speech and environmental sounds into real-time vibrations on the user’s
+                  skin.</p>
                 <div class="mt-4 d-flex gap-3">
                   <a href="#preorder" class="btn btn-brand btn-lg">Order Now Acett</a>
                   <a href="#focus" class="btn btn-outline-dark btn-lg">Learn more</a>
                 </div>
               </div>
               <div class="col-lg-6">
-                <img class="img-fluid hero-img" alt="Accet device render"
-                     src="/ACETT_Revised.jpg" />
+                <img class="img-fluid hero-img" alt="Accet device render" src="/ACETT_Revised.jpg" />
               </div>
             </div>
           </div>
@@ -260,16 +457,16 @@
                 <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">Home / Office</span>
                 <h1 class="headline">Haidware Kids’ Smart Audio Companion</h1>
                 <p class="sub mt-3">A playful companion that makes learning exciting, safe, and fun
-The Haidware Kids’ Companion is a screenfree, AI-powered audio device designed for children ages 5–13.
-It speaks, listens, and responds  bringing stories, lessons, and games to life in a way that’s safe and age appropriate.</p>
+                  The Haidware Kids’ Companion is a screenfree, AI-powered audio device designed for children ages 5–13.
+                  It speaks, listens, and responds bringing stories, lessons, and games to life in a way that’s safe and
+                  age appropriate.</p>
                 <div class="mt-4 d-flex gap-3">
                   <!-- <a href="#preorder" class="btn btn-brand btn-lg">Pre‑order Speaker</a>
                   <a href="#focus" class="btn btn-outline-dark btn-lg">Learn more</a> -->
                 </div>
               </div>
               <div class="col-lg-6">
-                <img class="img-fluid hero-img" alt="Smart speaker on desk"
-                     src="/kid.jpeg" />
+                <img class="img-fluid hero-img" alt="Smart speaker on desk" src="/kid.jpeg" />
               </div>
             </div>
           </div>
@@ -279,15 +476,15 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
               <div class="col-lg-6">
                 <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">Control</span>
                 <h1 class="headline">Smart Service Device</h1>
-                <p class="sub mt-3">A modern, touch-based device that lets guests browse menus, place orders, request services, and make instant payments. Wi-Fi powered, IoT ready. </p>
+                <p class="sub mt-3">A modern, touch-based device that lets guests browse menus, place orders, request
+                  services, and make instant payments. Wi-Fi powered, IoT ready. </p>
                 <div class="mt-4 d-flex gap-3">
                   <!-- <a href="#preorder" class="btn btn-brand btn-lg">Pre‑order Panel</a>
                   <a href="#focus" class="btn btn-outline-dark btn-lg">Learn more</a> -->
                 </div>
               </div>
               <div class="col-lg-6">
-                <img class="img-fluid hero-img" alt="Touch screen UI"
-                     src="/smart.jpeg" />
+                <img class="img-fluid hero-img" alt="Touch screen UI" src="/smart.jpeg" />
               </div>
             </div>
           </div>
@@ -302,7 +499,7 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
         </button>
       </div>
 
-      
+
     </div>
   </header>
 
@@ -312,7 +509,9 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
       <div class="row align-items-center g-4">
         <div class="col-lg-10">
           <h2 class="section-title">Our Focus</h2>
-          <p class="lead section-sub mt-2">Every HAIDWARE product is built on our mission: to integrate IoT and AI into systems that empower, simplify, and connect. From personal devices to business solutions, our focus remains on human‑centered innovation.</p>
+          <p class="lead section-sub mt-2">Our focus is to build technology that solves real problems through
+            human centered design, engineering innovation, and scalable solutions. We combine research, user insight,
+            and advanced technologies to create practical, impactful systems for real-world use.</p>
         </div>
       </div>
     </div>
@@ -320,16 +519,28 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
 
   <!-- PARTNERSHIP -->
   <section class="section bg-white" id="partnership">
-    <img src="/iReRobot_High_Resolution_File_New.png" height="100" justify-content-center alt="Irerobot logo" class="d-block mx-auto mb-4">
+    <img src="/iReRobot_High_Resolution_File_New.png" height="100" justify-content-center alt="Irerobot logo"
+      class="d-block mx-auto mb-4">
     <div class="container">
       <h3 class="section-title">Our partnership with Irerobot</h3>
-      
+
       <div class="row g-4">
         <div class="col-lg-10">
-          <p class="section-sub">HAIDWARE proudly partners with Irerobot, a pioneering sensory technology company specializing in cutting‑edge human–machine interaction.</p>
-          <P class="section-sub">Data on the Deaf population in Nigeria is fragmented and inconsistent, with estimates ranging widely depending on methodology. However, more reliable sources such as the World Health Organization indicate that the population of Deaf and hard-of-hearing Nigerians is around 12 million, representing about 5–6% of the country’s population. This highlights both the scale of the need and the significant opportunity for impactful solutions. Through our partnership with Irerobot, we are addressing this gap with the Accet device, designed to give the deaf and hard-of-hearing community a new way to interact with their surroundings</P>
-          <p class="section-sub">This collaboration is rooted in both shared vision and personal history: HAIDWARE’s founder worked at Irerobot in Republic of Cyprus, honing deep expertise in the hardware and robotics industry. Through this experience, HAIDWARE has built a strong foundation in IoT and AI system integration—skills now applied to create scalable, accessible, and future‑ready solutions.</p>
-          <p class="section-sub">Together, HAIDWARE and Irerobot bring to market breakthrough technologies that merge hardware engineering with AI‑powered intelligence, ensuring every product is both technically sound and human‑centered.</p>
+          <p class="section-sub">HAIDWARE partners with Irerobot. Irerobot specializes in advanced sensory technologies
+            and human machine interaction, developing state of the art devices and robotic systems that enhance how
+            people perceive and interact with their environment both physically and digitally.</p>
+          <P class="section-sub">One of the key outcomes of this collaboration is the ACCET device which is an assistive
+            technology designed to improve environmental awareness for the deaf and hard of hearing community. With an
+            estimated 12 million deaf and hard of hearing individuals in Nigeria, this represents a critical need for
+            accessible, technology-driven solutions.</P>
+          <p class="section-sub">Through this partnership, HAIDWARE plays a central role in:</p>
+          <p class="section-sub">Product refinement and system integration Preparing the device for scalable
+            manufacturing Positioning the product for deployment within African markets</p>
+          <p class="section-sub">This collaboration is built on strong technical alignment and prior experience, with
+            HAIDWARE’s founder having worked directly with Irerobot in Cyprus. That foundation enables us to bridge the
+            gap between early stage innovation and market-ready products.</p>
+          <p class="section-sub">This is the model we bring to every partnership by turning working prototypes into
+            scalable solutions that create real impact.</p>
         </div>
       </div>
     </div>
@@ -341,8 +552,18 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
       <h3 class="section-title">About HAIDWARE</h3>
       <div class="row g-4">
         <div class="col-lg-10">
-          <p class="section-sub">At HAIDWARE, our mission is to revolutionize the way technology integrates with everyday life. We focus on Internet of Things (IoT) and Artificial Intelligence (AI) to build smarter, more adaptive systems that enhance human potential, break barriers, and empower communities.</p>
-          <p class="section-sub">Our goal is to create innovative solutions where intelligent connectivity meets real‑world needs—from accessibility devices to smart automation systems. By combining IoT infrastructure with AI‑driven intelligence, we transform data into meaningful interactions that make systems more intuitive, responsive, and impactful.</p>
+          <p class="section-sub">Haidware is a technology driven innovation company focused on designing and deploying
+            practical hardware and software solutions that solve real-world challenges. By leveraging IoT, artificial
+            intelligence, and embedded system design, we build intelligent systems that enhance how people interact
+            with technology in everyday environments.</p>
+          <p class="section-sub">Our work spans assistive technology, smart systems, and digital fabrication, with
+            flagship innovations such as ACETT (Auditory Communication Enhancement Through Touch), alongside solutions
+            like the Smart Kid Device and Smart Hotel Device.</p>
+          <p class="section-sub">Through a combination of engineering, research, and real-world engagement, we develop
+            solutions that are not only innovative but also functional, scalable, and ready for deployment.</p>
+          <p class="section-sub">Haidware collaborates with forward-thinking partners to support product refinement,
+            manufacturing, and distribution, enabling our technologies to reach wider markets across Africa and beyond.
+          </p>
         </div>
       </div>
     </div>
@@ -350,75 +571,85 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
 
   <!-- LATEST NEWS -->
   <!-- UPCOMING LAUNCHES (replaces old #news) -->
-<section class="section bg-white" id="news">
-  <div class="container">
-    <div class="d-flex align-items-end justify-content-between mb-3">
-      <div>
-        <h3 class="section-title mb-1">Upcoming Launches</h3>
-        <p class="section-sub mb-0">Two new products arriving soon from Haidware.</p>
+  <section class="section bg-white" id="news">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between mb-3">
+        <div>
+          <h3 class="section-title mb-1">Upcoming Launches</h3>
+          <p class="section-sub mb-0">Two new products arriving soon from Haidware.</p>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        <!-- Kids’ Smart Companion -->
+        <div class="col-lg-10">
+          <h5 class="mb-2">Upcoming Launch: <span class="fw-bold">Haidware Kids’ Smart Companion</span> Making Learning
+            Fun, Safe, and Smart!</h5>
+          <p class="section-sub">
+            At Haidware, we’re redefining how children learn, play, and explore with technology. Introducing the
+            <strong>Haidware Kids’ Smart Companion</strong> a screen-free, AI-powered audio device designed especially
+            for kids aged 5–13.
+          </p>
+          <p class="section-sub">
+            This playful little friend talks, listens, and responds, bringing stories, lessons, and games to life in a
+            safe, engaging way.
+            Parents can rest easy knowing their children are learning and having fun within age-appropriate boundaries —
+            no screens, no distractions,
+            just pure imagination and interaction.
+          </p>
+          <ul class="text-muted mb-3">
+            <li> Interactive lessons &amp; storytelling</li>
+            <li> Fun games and entertainment</li>
+            <li> Wi-Fi connectivity for fresh content</li>
+            <li> Easy parental dashboard</li>
+          </ul>
+          <a class="btn btn-outline-dark btn-sm" href="/kid.html">READ MORE</a>
+        </div>
+
+        <hr class="my-0 mt-5">
+
+        <!-- Smart Service Device -->
+        <div class="col-lg-10 pt-3">
+          <h5 class="mb-2">Coming Soon: <span class="fw-bold">Smart Service Device for Hotels &amp; Restaurants</span>
+          </h5>
+          <p class="section-sub">
+            Transform the guest experience with Haidware’s Smart Service Device a sleek, touch-based solution built for
+            hotels, restaurants, and bars.
+          </p>
+          <p class="mb-2">It lets guests:</p>
+          <ul class="text-muted mb-3">
+            <li> Browse menus</li>
+            <li> Place orders instantly</li>
+            <li> Request services</li>
+            <li> Make fast, secure payments</li>
+          </ul>
+          <p class="section-sub">
+            Powered by Wi-Fi and IoT technology, this modern device eliminates delays and outdated service methods —
+            giving guests full control at their fingertips.
+          </p>
+          <p class="section-sub mb-3">
+            Click <em>READ MORE</em> to discover how Haidware is redefining hospitality service with smart, connected
+            technology.
+          </p>
+          <a class="btn btn-outline-dark btn-sm" href="/smart.html">READ MORE</a>
+        </div>
       </div>
     </div>
-
-    <div class="row g-5">
-      <!-- Kids’ Smart Companion -->
-      <div class="col-lg-10">
-        <h5 class="mb-2">Upcoming Launch: <span class="fw-bold">Haidware Kids’ Smart Companion</span> Making Learning Fun, Safe, and Smart!</h5>
-        <p class="section-sub">
-          At Haidware, we’re redefining how children learn, play, and explore with technology. Introducing the
-          <strong>Haidware Kids’ Smart Companion</strong> a screen-free, AI-powered audio device designed especially for kids aged 5–13.
-        </p>
-        <p class="section-sub">
-          This playful little friend talks, listens, and responds, bringing stories, lessons, and games to life in a safe, engaging way.
-          Parents can rest easy knowing their children are learning and having fun within age-appropriate boundaries — no screens, no distractions,
-          just pure imagination and interaction.
-        </p>
-        <ul class="text-muted mb-3">
-          <li> Interactive lessons &amp; storytelling</li>
-          <li> Fun games and entertainment</li>
-          <li> Wi-Fi connectivity for fresh content</li>
-          <li> Easy parental dashboard</li>
-        </ul>
-        <a class="btn btn-outline-dark btn-sm" href="/kid.html">READ MORE</a>
-      </div>
-
-      <hr class="my-0 mt-5">
-
-      <!-- Smart Service Device -->
-      <div class="col-lg-10 pt-3">
-        <h5 class="mb-2">Coming Soon: <span class="fw-bold">Smart Service Device for Hotels &amp; Restaurants</span></h5>
-        <p class="section-sub">
-          Transform the guest experience with Haidware’s Smart Service Device  a sleek, touch-based solution built for hotels, restaurants, and bars.
-        </p>
-        <p class="mb-2">It lets guests:</p>
-        <ul class="text-muted mb-3">
-          <li> Browse menus</li>
-          <li> Place orders instantly</li>
-          <li> Request services</li>
-          <li> Make fast, secure payments</li>
-        </ul>
-        <p class="section-sub">
-          Powered by Wi-Fi and IoT technology, this modern device eliminates delays and outdated service methods — giving guests full control at their fingertips.
-        </p>
-        <p class="section-sub mb-3">
-          Click <em>READ MORE</em> to discover how Haidware is redefining hospitality service with smart, connected technology.
-        </p>
-        <a class="btn btn-outline-dark btn-sm" href="/smart.html">READ MORE</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- SERVICES ANCHORS (for navbar links) -->
   <section class="section" id="service-3d">
     <div class="container">
       <h3 class="section-title">3D Design &amp; Printing</h3>
-      <p class="section-sub">Rapid prototyping from CAD to functional prints for enclosures, fixtures, and product iterations.</p>
+      <p class="section-sub">Rapid prototyping from CAD to functional prints for enclosures, fixtures, and product
+        iterations.</p>
     </div>
   </section>
   <section class="section bg-white" id="service-embedded">
     <div class="container">
       <h3 class="section-title">Embedded Product Design</h3>
-      <p class="section-sub">From PCB to firmware and connectivity—end‑to‑end development for robust, production‑ready devices.</p>
+      <p class="section-sub">From PCB to firmware and connectivity—end‑to‑end development for robust, production‑ready
+        devices.</p>
     </div>
   </section>
 
@@ -426,7 +657,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
   <section class="section" id="internship">
     <div class="container">
       <h3 class="section-title">Internship</h3>
-      <p class="section-sub">Learn alongside our engineers on real IoT + AI products. Openings announced soon—join the list below.</p>
+      <p class="section-sub">Learn alongside our engineers on real IoT + AI products. Openings announced soon—join the
+        list below.</p>
       <a href="#preorder" class="btn btn-outline-dark">Join interest list</a>
     </div>
   </section>
@@ -439,7 +671,7 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
   </section>
 
   <!-- FEATURED PRODUCTS -->
-  
+
 
   <!-- KITS / HOW IT WORKS -->
   <!--<section class="section" id="kits">
@@ -491,7 +723,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card h-100">
-            <img class="card-img-top" alt="Basic blinking LED" src="https://images.unsplash.com/photo-1580191947413-9b77af6e1c00?q=80&w=1200&auto=format&fit=crop" />
+            <img class="card-img-top" alt="Basic blinking LED"
+              src="https://images.unsplash.com/photo-1580191947413-9b77af6e1c00?q=80&w=1200&auto=format&fit=crop" />
             <div class="card-body">
               <h5>Blink an LED</h5>
               <p class="text-muted small">Your first microcontroller sketch using the built‑in LED.</p>
@@ -501,7 +734,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
         </div>
         <div class="col-md-4">
           <div class="card h-100">
-            <img class="card-img-top" alt="Ultrasonic sensor" src="https://images.unsplash.com/photo-1581905764498-f1b60ae13ecf?q=80&w=1200&auto=format&fit=crop" />
+            <img class="card-img-top" alt="Ultrasonic sensor"
+              src="https://images.unsplash.com/photo-1581905764498-f1b60ae13ecf?q=80&w=1200&auto=format&fit=crop" />
             <div class="card-body">
               <h5>Ultrasonic rangefinder</h5>
               <p class="text-muted small">Measure distance and avoid obstacles in real time.</p>
@@ -511,7 +745,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
         </div>
         <div class="col-md-4">
           <div class="card h-100">
-            <img class="card-img-top" alt="Line following robot" src="https://images.unsplash.com/photo-1581091874021-6ef0c7e1b627?q=80&w=1200&auto=format&fit=crop" />
+            <img class="card-img-top" alt="Line following robot"
+              src="https://images.unsplash.com/photo-1581091874021-6ef0c7e1b627?q=80&w=1200&auto=format&fit=crop" />
             <div class="card-body">
               <h5>Line follower bot</h5>
               <p class="text-muted small">Combine sensors + motors to follow a track autonomously.</p>
@@ -529,7 +764,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
       <div class="row g-5 align-items-center">
         <div class="col-lg-6">
           <h3 class="section-title">Order Now a HAIDWARE device</h3>
-          <p class="section-sub">Reserve yours now. We’ll email you with dates and payment steps once your device is ready.</p>
+          <p class="section-sub">Reserve yours now. We’ll email you with dates and payment steps once your device is
+            ready.</p>
           <ul class="text-muted small mb-0">
             <li>Accet — assistive sensory device</li>
             <li>Smart Speaker — voice + control</li>
@@ -550,9 +786,11 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
                     <option>Touch Screen</option>
                   </select>
                 </div>
-                <div class="col-md-6"><input type="number" min="1" class="form-control" placeholder="Quantity" required></div>
+                <div class="col-md-6"><input type="number" min="1" class="form-control" placeholder="Quantity" required>
+                </div>
                 <div class="col-md-6"><input class="form-control" placeholder="Phone (optional)"></div>
-                <div class="col-md-12"><textarea class="form-control" rows="3" placeholder="Notes (optional)"></textarea></div>
+                <div class="col-md-12"><textarea class="form-control" rows="3"
+                    placeholder="Notes (optional)"></textarea></div>
                 <div class="col-12"><button class="btn btn-brand w-100" type="submit">Place Order Now</button></div>
               </div>
             </form>
@@ -572,26 +810,32 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
           <div class="accordion" id="faq">
             <div class="accordion-item">
               <h2 class="accordion-header" id="h1">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">Do you ship nationwide?</button>
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1">Do you
+                  ship nationwide?</button>
               </h2>
               <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#faq">
-                <div class="accordion-body">Yes, we ship across Nigeria and to select African countries. Delivery typically takes 1–5 business days depending on your location.</div>
+                <div class="accordion-body">Yes, we ship across Nigeria and to select African countries. Delivery
+                  typically takes 1–5 business days depending on your location.</div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="h2">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">What is your return policy?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#c2">What is your return policy?</button>
               </h2>
               <div id="c2" class="accordion-collapse collapse" data-bs-parent="#faq">
-                <div class="accordion-body">Unused items can be returned within 7 days for a refund or exchange. Defective items are covered by our 30‑day warranty.</div>
+                <div class="accordion-body">Unused items can be returned within 7 days for a refund or exchange.
+                  Defective items are covered by our 30‑day warranty.</div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="h3">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">Do kits include tutorials?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#c3">Do kits include tutorials?</button>
               </h2>
               <div id="c3" class="accordion-collapse collapse" data-bs-parent="#faq">
-                <div class="accordion-body">Yes—each kit includes a printed guide and links to step‑by‑step videos.</div>
+                <div class="accordion-body">Yes—each kit includes a printed guide and links to step‑by‑step videos.
+                </div>
               </div>
             </div>
           </div>
@@ -604,7 +848,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
                 <div class="col-md-6"><input class="form-control" placeholder="First name" required></div>
                 <div class="col-md-6"><input class="form-control" placeholder="Last name" required></div>
                 <div class="col-md-12"><input type="email" class="form-control" placeholder="Email" required></div>
-                <div class="col-md-12"><textarea class="form-control" placeholder="How can we help?" rows="4"></textarea></div>
+                <div class="col-md-12"><textarea class="form-control" placeholder="How can we help?"
+                    rows="4"></textarea></div>
                 <div class="col-12"><button class="btn btn-brand w-100" type="submit">Send</button></div>
               </div>
             </form>
@@ -672,7 +917,7 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
           </ul>
         </div>
       </div>
-      <hr class="border-secondary my-4"/>
+      <hr class="border-secondary my-4" />
       <div class="d-flex justify-content-between small">
         <div>© <span id="year"></span> Haidware. All rights reserved.</div>
         <div class="d-flex gap-3">
@@ -685,7 +930,8 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
   </footer>
 
   <!-- Back to top -->
-  <button id="backToTop" class="btn btn-dark rounded-circle" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <button id="backToTop" class="btn btn-dark rounded-circle" aria-label="Back to top"><i
+      class="bi bi-arrow-up"></i></button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -697,23 +943,24 @@ It speaks, listens, and responds  bringing stories, lessons, and games to life i
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none';
     });
-    backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
   <script>
-  // Dismiss + remember (session)
-  (function(){
-    const bar = document.getElementById('promoPrintable');
-    if(!bar) return;
-    const KEY = 'hidePrintablePromo';
-    if (sessionStorage.getItem(KEY) === '1') { bar.remove(); return; }
+    // Dismiss + remember (session)
+    (function () {
+      const bar = document.getElementById('promoPrintable');
+      if (!bar) return;
+      const KEY = 'hidePrintablePromo';
+      if (sessionStorage.getItem(KEY) === '1') { bar.remove(); return; }
 
-    bar.querySelector('.promo-close')?.addEventListener('click', (e)=>{
-      e.stopPropagation(); e.preventDefault();
-      bar.remove();
-      sessionStorage.setItem(KEY,'1');
-    });
-  })();
-</script>
+      bar.querySelector('.promo-close')?.addEventListener('click', (e) => {
+        e.stopPropagation(); e.preventDefault();
+        bar.remove();
+        sessionStorage.setItem(KEY, '1');
+      });
+    })();
+  </script>
 
 </body>
+
 </html>
